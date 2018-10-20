@@ -1,9 +1,17 @@
 {
   "name": "monorepo",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "git@github.com:hardchor/monorepo.git",
   "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
   "license": "MIT",
-  "private": true
+  "scripts": {
+    "bootstrap": "lerna bootstrap"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "lerna": "^3.4.3"
+  }
 }
