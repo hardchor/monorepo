@@ -1,0 +1,9 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hardchor/monorepo.git",
+  "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
