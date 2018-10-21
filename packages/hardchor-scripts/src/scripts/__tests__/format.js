@@ -42,5 +42,5 @@ cases(
     '--ignore-path arg can be used for a custom ignore file': {
       args: ['--ignore-path', './.myignore'],
     },
-  }
+  },
 );

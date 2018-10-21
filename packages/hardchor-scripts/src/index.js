@@ -11,7 +11,7 @@ try {
 if (shouldThrow) {
   throw new Error(
     'You must use Node version 8 or greater to run the scripts within hardchor-scripts ' +
-      'because we dogfood the untranspiled version of the scripts.'
+      'because we dogfood the untranspiled version of the scripts.',
   );
 }
 

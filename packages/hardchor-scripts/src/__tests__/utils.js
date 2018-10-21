@@ -26,7 +26,7 @@ test('appDirectory is the dirname to the package.json', () => {
 test('resolveHardchorScripts resolves to src/index.js when in the @monorepo/hardchor-scripts package', () => {
   mockPkg({ pkg: { name: '@monorepo/hardchor-scripts' } });
   expect(require('../utils').resolveHardchorScripts()).toBe(
-    require.resolve('../').replace(process.cwd(), '.')
+    require.resolve('../').replace(process.cwd(), '.'),
   );
 });
 
@@ -38,13 +38,13 @@ test('resolveHardchorScripts resolves to @monorepo/hardchor-scripts if not in th
 
 test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
   expect(require('../utils').resolveBin('cross-env')).toBe(
-    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.')
+    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
   );
 });
 
 test(`resolveBin resolves to the binary if it's in $PATH`, () => {
   whichSyncMock.mockImplementationOnce(() =>
-    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.')
+    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
   );
   expect(require('../utils').resolveBin('cross-env')).toBe('cross-env');
   expect(whichSyncMock).toHaveBeenCalledTimes(1);
@@ -68,7 +68,7 @@ test('getConcurrentlyArgs gives good args to pass to concurrently', () => {
       h: 'echo h',
       i: 'echo i',
       j: 'echo j',
-    })
+    }),
   ).toMatchSnapshot();
 });
 

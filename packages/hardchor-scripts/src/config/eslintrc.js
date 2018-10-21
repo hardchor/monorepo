@@ -1,4 +1,4 @@
-const {ifAnyDep} = require('../utils')
+const { ifAnyDep } = require('../utils');
 
 module.exports = {
   extends: [
@@ -8,4 +8,4 @@ module.exports = {
     ifAnyDep('react', require.resolve('eslint-config-kentcdodds/react')),
   ].filter(Boolean),
   rules: {},
-}
+};

@@ -94,7 +94,7 @@ Or, for `babel`, a `.babelrc` with:
 Or, for `jest`:
 
 ```javascript
-const {jest: jestConfig} = require('hardchor-scripts/config')
+const { jest: jestConfig } = require('hardchor-scripts/config');
 module.exports = Object.assign(jestConfig, {
   // your overrides here
 
@@ -102,7 +102,7 @@ module.exports = Object.assign(jestConfig, {
   transform: {
     '\\.(ts|tsx)$': '<rootDir>/node_modules/ts-jest/preprocessor.js',
   },
-})
+});
 ```
 
 > Note: `hardchor-scripts` intentionally does not merge things for you when you start
@@ -112,7 +112,6 @@ module.exports = Object.assign(jestConfig, {
 ## Inspiration
 
 This is inspired by `kcd-scripts` and `react-scripts`.
-
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
