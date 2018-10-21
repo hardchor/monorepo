@@ -1,16 +1,13 @@
-const {resolveHardchorScripts, resolveBin, isOptedOut} = require('../utils')
+const { resolveHardchorScripts, resolveBin, isOptedOut } = require('../utils');
 
-const kcdScripts = resolveHardchorScripts()
-const doctoc = resolveBin('doctoc')
+const kcdScripts = resolveHardchorScripts();
+const doctoc = resolveBin('doctoc');
 
 module.exports = {
   concurrent: false,
   linters: {
     'README.md': [`${doctoc} --maxlevel 3 --notitle`, 'git add'],
-    '.all-contributorsrc': [
-      `${kcdScripts} contributors generate`,
-      'git add README.md',
-    ],
+    '.all-contributorsrc': [`${kcdScripts} contributors generate`, 'git add README.md'],
     '**/*.+(js|json|less|css|ts|tsx|md)': [
       isOptedOut('autoformat', null, `${kcdScripts} format`),
       `${kcdScripts} lint`,
@@ -18,4 +15,4 @@ module.exports = {
       isOptedOut('autoformat', null, 'git add'),
     ].filter(Boolean),
   },
-}
+};

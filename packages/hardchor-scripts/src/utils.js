@@ -151,8 +151,8 @@ function writeExtraEntry(name, { cjs, esm }, clean = true) {
         module: path.relative(entryDir, esm),
       },
       null,
-      2
-    )
+      2,
+    ),
   );
 }
 

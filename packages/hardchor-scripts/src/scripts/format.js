@@ -32,7 +32,7 @@ const filesToApply = parsedArgs._.length ? [] : ['**/*.+(js|json|less|css|ts|tsx
 const result = spawn.sync(
   resolveBin('prettier'),
   [...config, ...ignore, ...write, ...filesToApply].concat(relativeArgs),
-  { stdio: 'inherit' }
+  { stdio: 'inherit' },
 );
 
 process.exit(result.status);
