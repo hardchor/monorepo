@@ -10,7 +10,6 @@
   },
   "scripts": {
     "test": "node src test",
-    "test:update": "node src test --updateSnapshot",
     "build": "node src build",
     "lint": "node src lint",
     "format": "node src format",
