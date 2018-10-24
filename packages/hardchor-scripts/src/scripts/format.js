@@ -16,6 +16,15 @@ const useBuiltinConfig = !args.includes('--config')
 
 const config = useBuiltinConfig ? ['--config', hereRelative('../config/prettierrc.js')] : [];
 
+const useBuiltinEslintConfig = !args.includes('--eslint-config-path')
+  && !hasFile('.eslintrc')
+  && !hasFile('.eslintrc.js')
+  && !hasPkgProp('eslintConfig');
+
+const eslintConfig = useBuiltinEslintConfig
+  ? ['--eslint-config-path', hereRelative('../config/eslintrc.js')]
+  : [];
+
 const useBuiltinIgnore = !args.includes('--ignore-path') && !hasFile('.prettierignore');
 const ignore = useBuiltinIgnore ? ['--ignore-path', hereRelative('../config/prettierignore')] : [];
 
@@ -30,7 +39,7 @@ const filesToApply = parsedArgs._.length ? [] : ['**/*.+(js|json|less|css|ts|tsx
 
 const result = spawn.sync(
   resolveBin('prettier-eslint'),
-  [...config, ...ignore, ...write, ...filesToApply].concat(relativeArgs),
+  [...config, ...eslintConfig, ...ignore, ...write, ...filesToApply].concat(relativeArgs),
   { stdio: 'inherit' },
 );
 
