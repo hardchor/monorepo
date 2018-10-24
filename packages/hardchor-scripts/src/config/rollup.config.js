@@ -46,16 +46,16 @@ const defaultExternal = umd ? peerDeps : deps.concat(peerDeps);
 
 const input = glob.sync(
   fromRoot(
-    process.env.BUILD_INPUT ||
-      ifFile(`src/${format}-entry.js`, `src/${format}-entry.js`, 'src/index.js'),
+    process.env.BUILD_INPUT
+      || ifFile(`src/${format}-entry.js`, `src/${format}-entry.js`, 'src/index.js'),
   ),
 );
 const codeSplitting = input.length > 1;
 
 if (codeSplitting && uniq(input.map(single => path.basename(single))).length !== input.length) {
   throw new Error(
-    'Filenames of code-splitted entries should be unique to get deterministic output filenames.' +
-      `\nReceived those: ${input}.`,
+    'Filenames of code-splitted entries should be unique to get deterministic output filenames.'
+      + `\nReceived those: ${input}.`,
   );
 }
 
@@ -134,14 +134,14 @@ module.exports = {
     replace(replacements),
     useSizeSnapshot ? sizeSnapshot({ printInfo: false }) : null,
     minify ? terser() : null,
-    codeSplitting &&
-      ((writes = 0) => ({
+    codeSplitting
+      && ((writes = 0) => ({
         onwrite() {
           if (++writes !== input.length) {
             return;
           }
 
-          input.filter(single => single.indexOf('index.js') === -1).forEach(single => {
+          input.filter(single => single.indexOf('index.js') === -1).forEach((single) => {
             const chunk = path.basename(single);
 
             writeExtraEntry(chunk.replace(/\..+$/, ''), {

@@ -35,22 +35,22 @@ cases(
     'calls concurrently with all scripts': {
       setup: withDefaultSetup(setupWithScripts()),
     },
-    [`does not include "lint" if it doesn't have that script`]: {
+    'does not include "lint" if it doesn\'t have that script': {
       setup: withDefaultSetup(setupWithScripts(['test', 'build', 'flow'])),
     },
-    [`does not include "test" if it doesn't have that script`]: {
+    'does not include "test" if it doesn\'t have that script': {
       setup: withDefaultSetup(setupWithScripts(['lint', 'build', 'flow'])),
     },
-    [`does not include "build" if it doesn't have that script`]: {
+    'does not include "build" if it doesn\'t have that script': {
       setup: withDefaultSetup(setupWithScripts(['test', 'lint', 'flow'])),
     },
-    [`does not include "flow" if it doesn't have that script`]: {
+    'does not include "flow" if it doesn\'t have that script': {
       setup: withDefaultSetup(setupWithScripts(['test', 'build', 'lint'])),
     },
     'allows you to specify your own npm scripts': {
       setup: setupWithArgs(['specialbuild,specialtest,speciallint']),
     },
-    [`doesn't use test or lint if it's in precommit`]: {
+    "doesn't use test or lint if it's in precommit": {
       setup: withDefaultSetup(() => {
         const previousVal = process.env.SCRIPTS_PRECOMMIT;
         process.env.SCRIPTS_PRECOMMIT = 'true';

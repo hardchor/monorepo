@@ -1,17 +1,18 @@
 const path = require('path');
 const spawn = require('cross-spawn');
-const { isOptedIn, hasPkgProp, hasFile, resolveBin } = require('../utils');
+const {
+  isOptedIn, hasPkgProp, hasFile, resolveBin,
+} = require('../utils');
 
 const here = p => path.join(__dirname, p);
 const hereRelative = p => here(p).replace(process.cwd(), '.');
 
 const args = process.argv.slice(2);
 
-const useBuiltInConfig =
-  !args.includes('--config') &&
-  !hasFile('.lintstagedrc') &&
-  !hasFile('lint-staged.config.js') &&
-  !hasPkgProp('lint-staged');
+const useBuiltInConfig = !args.includes('--config')
+  && !hasFile('.lintstagedrc')
+  && !hasFile('lint-staged.config.js')
+  && !hasPkgProp('lint-staged');
 
 const config = useBuiltInConfig ? ['--config', hereRelative('../config/lintstagedrc.js')] : [];
 

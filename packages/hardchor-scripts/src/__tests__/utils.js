@@ -3,7 +3,8 @@ jest.mock('read-pkg-up', () => ({
 }));
 jest.mock('which', () => ({ sync: jest.fn(() => {}) }));
 
-let whichSyncMock, readPkgUpSyncMock;
+let whichSyncMock;
+let readPkgUpSyncMock;
 
 beforeEach(() => {
   jest.resetModules();
@@ -36,16 +37,14 @@ test('resolveHardchorScripts resolves to @monorepo/hardchor-scripts if not in th
   expect(require('../utils').resolveHardchorScripts()).toBe('@monorepo/hardchor-scripts');
 });
 
-test(`resolveBin resolves to the full path when it's not in $PATH`, () => {
+test("resolveBin resolves to the full path when it's not in $PATH", () => {
   expect(require('../utils').resolveBin('cross-env')).toBe(
     require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
   );
 });
 
-test(`resolveBin resolves to the binary if it's in $PATH`, () => {
-  whichSyncMock.mockImplementationOnce(() =>
-    require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'),
-  );
+test("resolveBin resolves to the binary if it's in $PATH", () => {
+  whichSyncMock.mockImplementationOnce(() => require.resolve('cross-env/dist/bin/cross-env').replace(process.cwd(), '.'));
   expect(require('../utils').resolveBin('cross-env')).toBe('cross-env');
   expect(whichSyncMock).toHaveBeenCalledTimes(1);
   expect(whichSyncMock).toHaveBeenCalledWith('cross-env');
@@ -79,7 +78,7 @@ test('parseEnv parses the existing environment variable', () => {
   delete process.env.BUILD_GLOBALS;
 });
 
-test(`parseEnv returns the default if the environment variable doesn't exist`, () => {
+test("parseEnv returns the default if the environment variable doesn't exist", () => {
   const defaultVal = { hello: 'world' };
   expect(require('../utils').parseEnv('DOES_NOT_EXIST', defaultVal)).toBe(defaultVal);
 });
