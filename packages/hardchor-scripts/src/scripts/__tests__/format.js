@@ -39,9 +39,6 @@ cases(
     '--config arg can be used for a custom config': {
       args: ['--config', './my-config.js'],
     },
-    '--ignore-path arg can be used for a custom ignore file': {
-      args: ['--ignore-path', './.myignore'],
-    },
     '--eslint-config-path arg can be used for a custom eslint config': {
       args: ['--eslint-config-path', './my-eslint-config.js'],
     },
