@@ -9,11 +9,10 @@ const parsedArgs = yargsParser(args);
 const here = p => path.join(__dirname, p);
 const hereRelative = p => here(p).replace(process.cwd(), '.');
 
-const useBuiltinConfig =
-  !args.includes('--config') &&
-  !hasFile('.prettierrc') &&
-  !hasFile('prettier.config.js') &&
-  !hasPkgProp('prettierrc');
+const useBuiltinConfig = !args.includes('--config')
+  && !hasFile('.prettierrc')
+  && !hasFile('prettier.config.js')
+  && !hasPkgProp('prettierrc');
 
 const config = useBuiltinConfig ? ['--config', hereRelative('../config/prettierrc.js')] : [];
 
@@ -30,7 +29,7 @@ const relativeArgs = args.map(a => a.replace(`${process.cwd()}/`, ''));
 const filesToApply = parsedArgs._.length ? [] : ['**/*.+(js|json|less|css|ts|tsx|md)'];
 
 const result = spawn.sync(
-  resolveBin('prettier'),
+  resolveBin('prettier-eslint'),
   [...config, ...ignore, ...write, ...filesToApply].concat(relativeArgs),
   { stdio: 'inherit' },
 );

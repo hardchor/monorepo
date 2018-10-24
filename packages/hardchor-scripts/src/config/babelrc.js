@@ -1,7 +1,9 @@
 const browserslist = require('browserslist');
 const semver = require('semver');
 
-const { ifAnyDep, parseEnv, appDirectory, pkg } = require('../utils');
+const {
+  ifAnyDep, parseEnv, appDirectory, pkg,
+} = require('../utils');
 
 const { BABEL_ENV, NODE_ENV, BUILD_FORMAT } = process.env;
 const isTest = (BABEL_ENV || NODE_ENV) === 'test';
@@ -14,8 +16,7 @@ const treeshake = parseEnv('BUILD_TREESHAKE', isRollup || isWebpack);
 const alias = parseEnv('BUILD_ALIAS', isPreact ? { react: 'preact' } : null);
 
 const hasBabelRuntimeDep = Boolean(pkg.dependencies && pkg.dependencies['@babel/runtime']);
-const RUNTIME_HELPERS_WARN =
-  'You should add @babel/runtime as dependency to your package. It will allow reusing so-called babel helpers from npm rather than bundling their copies into your files.';
+const RUNTIME_HELPERS_WARN = 'You should add @babel/runtime as dependency to your package. It will allow reusing so-called babel helpers from npm rather than bundling their copies into your files.';
 
 if (!treeshake && !hasBabelRuntimeDep) {
   throw new Error(RUNTIME_HELPERS_WARN);
