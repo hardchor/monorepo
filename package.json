@@ -6,12 +6,27 @@
   "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "format": "hardchor-scripts format"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
-    "lerna": "^3.4.3"
+    "@monorepo/hardchor-scripts": "*",
+    "husky": "^1.1.2",
+    "lerna": "^3.4.3",
+    "lint-staged": "^7.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js|json|less|css|ts|tsx|md}": [
+      "hardchor-scripts format",
+      "git add"
+    ]
   }
 }
