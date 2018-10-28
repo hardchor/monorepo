@@ -7,7 +7,7 @@ const here = p => path.join(__dirname, p);
 
 const useBuiltInBabelConfig = !hasFile('.babelrc') && !hasPkgProp('babel');
 
-const ignores = ['/node_modules/', '/fixtures/', '/__tests__/helpers/', '__mocks__'];
+const ignores = ['/node_modules/', '/fixtures/', '/__tests__/helpers/', '__mocks__', '/dist/'];
 
 const jestConfig = {
   roots: [fromRoot('src')],
@@ -27,6 +27,7 @@ const jestConfig = {
       statements: 100,
     },
   },
+  clearMocks: true,
 };
 
 if (useBuiltInBabelConfig) {
