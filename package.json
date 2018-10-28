@@ -7,12 +7,14 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "format": "hardchor-scripts format"
+    "format": "hardchor-scripts format",
+    "test": "lerna exec yarn test"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "@monorepo/hardchor-scripts": "*",
     "husky": "^1.1.2",
     "lerna": "^3.4.3",
@@ -20,12 +22,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "SCRIPTS_PRECOMMIT=true lint-staged"
     }
   },
   "lint-staged": {
     "*.{js|json|less|css|ts|tsx|md}": [
-      "hardchor-scripts format",
+      "yarn format",
       "git add"
     ]
   }
