@@ -3,5 +3,14 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "deploy": "serverless deploy -v",
+    "playground": "serverless graphql-playground"
+  },
+  "dependencies": {
+    "serverless": "^1.32.0",
+    "serverless-appsync-plugin": "^1.0.5",
+    "serverless-pseudo-parameters": "^2.2.0"
+  }
 }
