@@ -6,9 +6,11 @@
   "private": true,
   "scripts": {
     "deploy": "serverless deploy -v",
+    "deploy:watch": "nodemon -w serverless.yml -x \"yarn deploy\"",
     "playground": "serverless graphql-playground"
   },
   "dependencies": {
+    "nodemon": "^1.18.6",
     "serverless": "^1.32.0",
     "serverless-appsync-plugin": "^1.0.5",
     "serverless-pseudo-parameters": "^2.2.0"

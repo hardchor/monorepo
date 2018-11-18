@@ -5,12 +5,13 @@ A GraphQL-powered backend, running on AWS AppSync and deployed via the serverles
 ## Deploy
 
 ```bash
+# during development
+SLS_DEBUG=* yarn deploy:watch
+
+# deploy to staging
 yarn deploy
 
-# to debug
-SLS_DEBUG=* yarn deploy
-
-# for production
+# deploy to production
 yarn deploy -s prod
 ```
 

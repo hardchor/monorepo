@@ -55,7 +55,7 @@ custom:
         name: usersTable
         description: 'Users table'
         config:
-          tableName: '${self:custom.resourcePrefix}Users'
+          tableName: { Ref: UserTable }
           serviceRoleArn: { Fn::GetAtt: [AppSyncDynamoDBServiceRole, Arn] }
 
 resources:
@@ -103,8 +103,8 @@ resources:
                     - 'dynamodb:Scan'
                     - 'dynamodb:UpdateItem'
                   Resource:
-                    - 'arn:aws:dynamodb:${self:provider.region}:*:table/MonorepoUsers'
-                    - 'arn:aws:dynamodb:${self:provider.region}:*:table/MonorepoUsers/*'
+                    - { Fn::GetAtt: [UserTable, Arn] }
+                    - { Fn::Join: ['/', [{ Fn::GetAtt: [UserTable, Arn] }, '*']] }
 
     # Cognito - User pool
     CognitoUserPool:
