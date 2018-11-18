@@ -8,3 +8,4 @@ My playground for different approaches to software development!
 ## Contents
 
 - [**hardchor-scripts**](./packages/hardchor-scripts/README.md): Tooling library to ease common set-ups
+- [**serverless-appsync**](./packages/serverless-appsync/README.md): GraphQL-powered backend
