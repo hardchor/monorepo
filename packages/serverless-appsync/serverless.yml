@@ -3,8 +3,8 @@ app: monorepo
 service: ${self:app}-serverless-appsync
 
 plugins:
-  - serverless-appsync-plugin
   - serverless-pseudo-parameters
+  - serverless-appsync-plugin
 
 provider:
   name: aws
@@ -23,10 +23,8 @@ custom:
     userPoolConfig:
       awsRegion: ${self:provider.region}
       defaultAction: ALLOW
-      userPoolId:
-        Ref: CognitoUserPool
-      playgroundClientId:
-        Ref: CognitoUserPoolClient
+      userPoolId: { Ref: CognitoUserPool }
+      playgroundClientId: { Ref: CognitoUserPoolClientPlayground }
       # appIdClientRegex: # optional
     schema: schema.graphql # Input GraphQL Schema
     logConfig:
@@ -116,6 +114,14 @@ resources:
       Type: AWS::Cognito::UserPoolClient
       Properties:
         ClientName: ${self:custom.resourcePrefix}UserPoolClient
+        UserPoolId:
+          Ref: CognitoUserPool
+    CognitoUserPoolClientPlayground:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: ${self:custom.resourcePrefix}UserPoolClientPlayground
+        ExplicitAuthFlows:
+          - ADMIN_NO_SRP_AUTH
         UserPoolId:
           Ref: CognitoUserPool
     # Cognito - Identity
