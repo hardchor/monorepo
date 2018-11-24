@@ -5,12 +5,17 @@ service: ${self:app}-serverless-appsync
 plugins:
   - serverless-pseudo-parameters
   - serverless-appsync-plugin
+  - serverless-export-env
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
   region: eu-west-1
+  environment:
+    USER_POOL_ID: !Ref CognitoUserPool
+    USER_POOL_CLIENT_ID: !Ref CognitoUserPoolClient
+    USER_POOL_CLIENT_ID_PLAYGROUND: !Ref CognitoUserPoolClientPlayground
 
 custom:
   resourcePrefix: ${self:provider.stage}MonorepoServerlessAppsync

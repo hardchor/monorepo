@@ -15,6 +15,16 @@ yarn deploy
 yarn deploy -s prod
 ```
 
+## Develop
+
+## Creating a new user
+
+```bash
+yarn create-user -u admin -p Password1!
+```
+
+## GraphQL Playground
+
 To launch GraphQL Playground:
 
 ```bash
