@@ -1,12 +1,7 @@
 {
     "version" : "2017-02-28",
-    "operation" : "Query",
-    "query" : {
-        "expression": "handle = :handle",
-        "expressionValues" : {
-            ":handle" : {
-                "S" : "${context.identity.username}"
-            }
-        }
+    "operation": "GetItem",
+    "key": {
+        "handle": $util.dynamodb.toDynamoDBJson($ctx.identity.username),
     }
 }
