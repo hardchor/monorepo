@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "build": "hardchor-scripts build",
-    "postinstall": "yarn build",
     "deploy": "serverless deploy -v && yarn export-env",
     "deploy:watch": "nodemon -w serverless.yml -x \"yarn deploy\"",
     "playground": "serverless graphql-playground",
