@@ -8,7 +8,8 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "format": "hardchor-scripts format",
-    "test": "lerna exec yarn test"
+    "test": "lerna exec yarn test",
+    "postinstall": "ln -sf packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'"
   },
   "workspaces": [
     "packages/*"
