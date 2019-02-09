@@ -17,14 +17,20 @@ provider:
     USER_POOL_CLIENT_ID: !Ref CognitoUserPoolClient
     USER_POOL_CLIENT_ID_PLAYGROUND: !Ref CognitoUserPoolClientPlayground
 
+functions:
+  usersCreate: # A Function
+    handler: dist/handlers/users.create
+    events: # The Events that trigger this Function
+      - cognitoUserPool:
+          pool: { Ref: CognitoUserPool }
+          trigger: PreSignUp
+
 custom:
   resourcePrefix: ${self:provider.stage}MonorepoServerlessAppsync
   accountId: #{AWS::AccountId}
   appSync:
     name: ${self:custom.resourcePrefix}Api
-    # apiKey # only required for update-appsync/delete-appsync
     authenticationType: AMAZON_COGNITO_USER_POOLS # API_KEY or AWS_IAM or AMAZON_COGNITO_USER_POOLS or OPENID_CONNECT
-    # if AMAZON_COGNITO_USER_POOLS
     userPoolConfig:
       awsRegion: ${self:provider.region}
       defaultAction: ALLOW
