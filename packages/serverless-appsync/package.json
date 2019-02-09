@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "hardchor-scripts build",
-    "deploy": "serverless deploy -v && yarn export-env",
+    "deploy": "yarn build && serverless deploy -v && yarn export-env",
     "deploy:watch": "nodemon -w serverless.yml -w src/mappingTemplates -x \"yarn deploy\"",
     "playground": "serverless graphql-playground",
     "create-user": "node dist/tools/createUser.js",
@@ -14,7 +14,9 @@
     "test": "echo \"Not implemented (yet)\" && exit 0"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.5",
+    "@babel/runtime": "^7.1.5"
+  },
+  "devDependencies": {
     "@monorepo/hardchor-scripts": "*",
     "aws-sdk": "^2.361.0",
     "commander": "^2.19.0",
