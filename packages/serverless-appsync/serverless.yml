@@ -20,10 +20,6 @@ provider:
 functions:
   usersCreate: # A Function
     handler: dist/handlers/users.create
-    events: # The Events that trigger this Function
-      - cognitoUserPool:
-          pool: { Ref: CognitoUserPool }
-          trigger: PreSignUp
 
 custom:
   resourcePrefix: ${self:provider.stage}MonorepoServerlessAppsync
@@ -34,8 +30,8 @@ custom:
     userPoolConfig:
       awsRegion: ${self:provider.region}
       defaultAction: ALLOW
-      userPoolId: { Ref: CognitoUserPool }
-      playgroundClientId: { Ref: CognitoUserPoolClientPlayground }
+      userPoolId: !Ref CognitoUserPool
+      playgroundClientId: !Ref CognitoUserPoolClientPlayground
       # appIdClientRegex: # optional
     schema: schema.graphql # Input GraphQL Schema
     logConfig:
@@ -64,7 +60,7 @@ custom:
         name: usersTable
         description: 'Users table'
         config:
-          tableName: { Ref: UserTable }
+          tableName: !Ref UserTable
           serviceRoleArn: { Fn::GetAtt: [AppSyncDynamoDBServiceRole, Arn] }
 
 resources:
@@ -120,21 +116,23 @@ resources:
       Type: AWS::Cognito::UserPool
       Properties:
         UserPoolName: ${self:custom.resourcePrefix}UserPool
+        LambdaConfig:
+          PreSignUp: 'arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${self:provider.stage}-usersCreate'
+
     # Cognito - Client
     CognitoUserPoolClient:
       Type: AWS::Cognito::UserPoolClient
       Properties:
         ClientName: ${self:custom.resourcePrefix}UserPoolClient
-        UserPoolId:
-          Ref: CognitoUserPool
+        UserPoolId: !Ref CognitoUserPool
     CognitoUserPoolClientPlayground:
       Type: AWS::Cognito::UserPoolClient
       Properties:
         ClientName: ${self:custom.resourcePrefix}UserPoolClientPlayground
         ExplicitAuthFlows:
           - ADMIN_NO_SRP_AUTH
-        UserPoolId:
-          Ref: CognitoUserPool
+        UserPoolId: !Ref CognitoUserPool
+
     # Cognito - Identity
     CognitoIdentityPool:
       Type: AWS::Cognito::IdentityPool
@@ -142,16 +140,15 @@ resources:
         IdentityPoolName: ${self:custom.resourcePrefix}IdentityPool
         AllowUnauthenticatedIdentities: false
         CognitoIdentityProviders:
-          - ClientId:
-              Ref: CognitoUserPoolClient
+          - ClientId: !Ref CognitoUserPoolClient
             ProviderName:
               Fn::GetAtt: [CognitoUserPool, ProviderName]
+
     # Cognito roles
     CognitoIdentityPoolRoles:
       Type: AWS::Cognito::IdentityPoolRoleAttachment
       Properties:
-        IdentityPoolId:
-          Ref: CognitoIdentityPool
+        IdentityPoolId: !Ref CognitoIdentityPool
         Roles:
           authenticated:
             Fn::GetAtt: [CognitoAuthRole, Arn]
@@ -172,8 +169,7 @@ resources:
                 - 'sts:AssumeRoleWithWebIdentity'
               Condition:
                 StringEquals:
-                  'cognito-identity.amazonaws.com:aud':
-                    Ref: CognitoIdentityPool
+                  'cognito-identity.amazonaws.com:aud': !Ref CognitoIdentityPool
                 'ForAnyValue:StringLike':
                   'cognito-identity.amazonaws.com:amr': authenticated
         Policies:
@@ -206,8 +202,7 @@ resources:
                 - 'sts:AssumeRoleWithWebIdentity'
               Condition:
                 StringEquals:
-                  'cognito-identity.amazonaws.com:aud':
-                    Ref: CognitoIdentityPool
+                  'cognito-identity.amazonaws.com:aud': !Ref CognitoIdentityPool
                 'ForAnyValue:StringLike':
                   'cognito-identity.amazonaws.com:amr': unauthenticated
         Policies:
