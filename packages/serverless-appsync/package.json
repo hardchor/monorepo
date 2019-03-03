@@ -7,6 +7,7 @@
   "scripts": {
     "build": "hardchor-scripts build",
     "deploy": "yarn build && serverless deploy -v && yarn export-env",
+    "recall": "serverless remove -v",
     "deploy:watch": "nodemon -w serverless.yml -w src/mappingTemplates -x \"yarn deploy\"",
     "playground": "serverless graphql-playground",
     "create-user": "node dist/tools/createUser.js",
