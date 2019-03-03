@@ -117,7 +117,7 @@ const replacements = Object.entries(umd ? process.env : omit(process.env, ['NODE
 module.exports = {
   input: codeSplitting ? input : input[0],
   output,
-  experimentalCodeSplitting: codeSplitting,
+  // experimentalCodeSplitting: codeSplitting,
   external: externalPredicate,
   plugins: [
     isNode ? nodeBuiltIns() : null,
@@ -141,14 +141,16 @@ module.exports = {
             return;
           }
 
-          input.filter(single => single.indexOf('index.js') === -1).forEach((single) => {
-            const chunk = path.basename(single);
+          input
+            .filter(single => single.indexOf('index.js') === -1)
+            .forEach((single) => {
+              const chunk = path.basename(single);
 
-            writeExtraEntry(chunk.replace(/\..+$/, ''), {
-              cjs: `${dirpath}/cjs/${chunk}`,
-              esm: `${dirpath}/esm/${chunk}`,
+              writeExtraEntry(chunk.replace(/\..+$/, ''), {
+                cjs: `${dirpath}/cjs/${chunk}`,
+                esm: `${dirpath}/esm/${chunk}`,
+              });
             });
-          });
         },
       }))(),
   ].filter(Boolean),
