@@ -35,7 +35,7 @@ custom:
       # appIdClientRegex: # optional
     schema: schema.graphql # Input GraphQL Schema
     logConfig:
-      # loggingRoleArn: { Fn::GetAtt: [AppSyncLoggingServiceRole, Arn] } # Where AppSyncLoggingServiceRole is a role with CloudWatch Logs write access
+      # loggingRoleArn: !GetAtt AppSyncLoggingServiceRole.Arn # Where AppSyncLoggingServiceRole is a role with CloudWatch Logs write access
       level: ERROR # Logging Level: NONE | ERROR | ALL
     mappingTemplatesLocation: src/mappingTemplates # defaults to mapping-templates
     mappingTemplates:
@@ -61,7 +61,7 @@ custom:
         description: 'Users table'
         config:
           tableName: !Ref UserTable
-          serviceRoleArn: { Fn::GetAtt: [AppSyncDynamoDBServiceRole, Arn] }
+          serviceRoleArn: !GetAtt AppSyncDynamoDBServiceRole.Arn
 
 resources:
   Resources:
@@ -108,8 +108,8 @@ resources:
                     - 'dynamodb:Scan'
                     - 'dynamodb:UpdateItem'
                   Resource:
-                    - { Fn::GetAtt: [UserTable, Arn] }
-                    - { Fn::Join: ['/', [{ Fn::GetAtt: [UserTable, Arn] }, '*']] }
+                    - !GetAtt UserTable.Arn
+                    - !Join ['/', [!GetAtt [UserTable, Arn], '*']]
 
     # Cognito - User pool
     CognitoUserPool:
@@ -117,7 +117,15 @@ resources:
       Properties:
         UserPoolName: ${self:custom.resourcePrefix}UserPool
         LambdaConfig:
+          # setting this to "!GetAtt UsersCreateLambdaFunction.Arn" generates circular dependency :(
           PreSignUp: 'arn:aws:lambda:#{AWS::Region}:#{AWS::AccountId}:function:${self:service}-${self:provider.stage}-usersCreate'
+    CognitoUserPoolPreSignUpInvocationPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        Action: lambda:InvokeFunction
+        FunctionName: !GetAtt UsersCreateLambdaFunction.Arn
+        Principal: cognito-idp.amazonaws.com
+        SourceArn: !GetAtt CognitoUserPool.Arn
 
     # Cognito - Client
     CognitoUserPoolClient:
@@ -141,8 +149,7 @@ resources:
         AllowUnauthenticatedIdentities: false
         CognitoIdentityProviders:
           - ClientId: !Ref CognitoUserPoolClient
-            ProviderName:
-              Fn::GetAtt: [CognitoUserPool, ProviderName]
+            ProviderName: !GetAtt CognitoUserPool.ProviderName
 
     # Cognito roles
     CognitoIdentityPoolRoles:
@@ -150,10 +157,8 @@ resources:
       Properties:
         IdentityPoolId: !Ref CognitoIdentityPool
         Roles:
-          authenticated:
-            Fn::GetAtt: [CognitoAuthRole, Arn]
-          unauthenticated:
-            Fn::GetAtt: [CognitoUnauthRole, Arn]
+          authenticated: !GetAtt CognitoAuthRole.Arn
+          unauthenticated: !GetAtt CognitoUnauthRole.Arn
     CognitoAuthRole:
       Type: AWS::IAM::Role
       Properties:
