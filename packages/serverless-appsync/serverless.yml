@@ -16,6 +16,18 @@ provider:
     USER_POOL_ID: !Ref CognitoUserPool
     USER_POOL_CLIENT_ID: !Ref CognitoUserPoolClient
     USER_POOL_CLIENT_ID_PLAYGROUND: !Ref CognitoUserPoolClientPlayground
+    DYNAMODB_USER_TABLE: !Ref UserTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: !GetAtt UserTable.Arn
 
 functions:
   usersCreate: # A Function
