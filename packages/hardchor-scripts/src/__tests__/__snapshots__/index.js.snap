@@ -30,6 +30,7 @@ Available Scripts:
   build
   format
   lint
+  run
   test
   validate
 

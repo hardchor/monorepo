@@ -13,7 +13,7 @@
     "recall": "serverless remove -v",
     "deploy:watch": "nodemon -w serverless.yml -w src/mappingTemplates -x \"yarn deploy\"",
     "playground": "serverless graphql-playground",
-    "create-user": "node dist/tools/createUser.js",
+    "create-user": "hardchor-scripts run src/tools/createUser.js",
     "export-env": "serverless export-env",
     "test": "echo \"Not implemented (yet)\" && exit 0"
   },
