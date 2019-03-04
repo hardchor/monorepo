@@ -20,7 +20,7 @@ yarn deploy -s prod
 ## Creating a new user
 
 ```bash
-yarn create-user -u admin -p Password1!
+yarn user:create -u admin -p Password1!
 ```
 
 ## GraphQL Playground
