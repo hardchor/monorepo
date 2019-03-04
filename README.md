@@ -1,5 +1,5 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
-[![CircleCI](https://circleci.com/gh/hardchor/monorepo.svg?style=svg)](https://circleci.com/gh/hardchor/monorepo)
+[![CircleCI](https://circleci.com/gh/hardchor/monorepo.svg?style=svg)](https://circleci.com/gh/hardchor/monorepo) [![Greenkeeper badge](https://badges.greenkeeper.io/hardchor/monorepo.svg)](https://greenkeeper.io/)
 
 # The Monorepo
 
