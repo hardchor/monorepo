@@ -24,7 +24,7 @@
     "@monorepo/hardchor-scripts": "*",
     "husky": "^1.1.2",
     "lerna": "^3.4.3",
-    "lint-staged": "^7.3.0"
+    "lint-staged": "^8.1.5"
   },
   "husky": {
     "hooks": {
