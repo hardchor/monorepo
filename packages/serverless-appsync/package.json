@@ -9,12 +9,12 @@
   },
   "scripts": {
     "build": "hardchor-scripts build",
-    "deploy": "yarn build && serverless deploy -v && yarn export-env",
+    "deploy": "yarn build && serverless deploy -v && yarn env:export",
     "recall": "serverless remove -v",
     "deploy:watch": "nodemon -w serverless.yml -w src/mappingTemplates -x \"yarn deploy\"",
     "playground": "serverless graphql-playground",
-    "create-user": "hardchor-scripts run src/tools/createUser.js",
-    "export-env": "serverless export-env",
+    "user:create": "hardchor-scripts run src/tools/createUser.js",
+    "env:export": "serverless export-env",
     "test": "echo \"Not implemented (yet)\" && exit 0"
   },
   "dependencies": {
