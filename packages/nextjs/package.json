@@ -1,0 +1,21 @@
+{
+  "name": "@monorepo/nextjs",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A next.js app",
+  "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
+  "homepage": "https://github.com/hardchor/monorepo#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "start:dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
+}
