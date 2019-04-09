@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.2",
-    "arrify": "^1.0.1",
+    "arrify": "^2.0.1",
     "babel-jest": "^24.1.0",
     "babel-plugin-macros": "^2.3.0",
     "babel-plugin-minify-dead-code-elimination": "^0.5.0",
