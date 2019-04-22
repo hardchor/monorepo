@@ -9,7 +9,9 @@
     "bootstrap": "lerna bootstrap",
     "format": "hardchor-scripts format",
     "test": "lerna exec yarn test",
-    "postinstall": "ln -sf packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'"
+    "postinstall": "yarn postinstall:nextjs && yarn postinstall:serverless-appsync && ln -sf packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'",
+    "postinstall:nextjs": "ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts",
+    "postinstall:serverless-appsync": "ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts"
   },
   "workspaces": {
     "packages": [
