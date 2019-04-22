@@ -1,5 +1,9 @@
 import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-boost';
 import fetch from 'isomorphic-unfetch';
+import AWSAppSyncClient from 'aws-appsync';
+import { AUTH_TYPE } from 'aws-appsync/lib/link/auth-link';
+import Amplify, { Auth } from 'aws-amplify';
+import config from '../config';
 
 let apolloClient = null;
 
@@ -8,17 +12,36 @@ if (!process.browser) {
   global.fetch = fetch;
 }
 
+Amplify.configure({
+  aws_appsync_graphqlEndpoint: config.appSyncUrl,
+  aws_appsync_region: config.awsRegion,
+  aws_appsync_authenticationType: AUTH_TYPE.AMAZON_COGNITO_USER_POOLS,
+  Auth: {
+    userPoolId: config.userPoolId,
+    userPoolWebClientId: config.userPoolWebClientId,
+  },
+});
+
 function create(initialState) {
-  // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
-  return new ApolloClient({
-    connectToDevTools: process.browser,
-    ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    link: new HttpLink({
-      uri: 'https://api.graph.cool/simple/v1/cixmkt2ul01q00122mksg82pn', // Server URL (must be absolute)
-      credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
-    }),
-    cache: new InMemoryCache().restore(initialState || {}),
-  });
+  const client = new AWSAppSyncClient(
+    {
+      url: config.appSyncUrl,
+      region: config.awsRegion,
+      auth: {
+        // Amazon Cognito user pools using AWS Amplify
+        type: AUTH_TYPE.AMAZON_COGNITO_USER_POOLS,
+        jwtToken: async () => (await Auth.currentSession()).getIdToken().getJwtToken(),
+      },
+      disableOffline: true,
+    },
+    {
+      connectToDevTools: process.browser,
+      cache: new InMemoryCache().restore(initialState || {}),
+      ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
+    },
+  );
+
+  return client;
 }
 
 export default function initApollo(initialState) {

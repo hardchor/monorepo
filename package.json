@@ -16,7 +16,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/serverless-appsync/**"
+      "**/serverless-appsync/**",
+      "**/nextjs/**"
     ]
   },
   "dependencies": {

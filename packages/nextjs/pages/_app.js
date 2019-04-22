@@ -1,7 +1,10 @@
 import App, { Container } from 'next/app';
+import Router from 'next/router';
 import React from 'react';
-import withApolloClient from '../lib/withApolloClient';
 import { ApolloProvider } from 'react-apollo';
+import { compose } from 'ramda';
+import { withAuthenticator } from 'aws-amplify-react';
+import withApolloClient from '../lib/withApolloClient';
 
 class MyApp extends App {
   render() {
@@ -16,4 +19,7 @@ class MyApp extends App {
   }
 }
 
-export default withApolloClient(MyApp);
+export default compose(
+  withAuthenticator,
+  withApolloClient,
+)(MyApp);
