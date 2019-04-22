@@ -15,7 +15,7 @@
     "playground": "serverless graphql-playground",
     "user:create": "hardchor-scripts run src/tools/createUser.js",
     "env:export": "serverless export-env",
-    "test": "echo \"Not implemented (yet)\" && exit 0"
+    "test": "hardchor-scripts test --passWithNoTests"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",

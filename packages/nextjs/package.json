@@ -11,7 +11,7 @@
     "start:dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "hardchor-scripts test --passWithNoTests"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.2-canary.2",
@@ -27,5 +27,8 @@
     "react": "^16.8.3",
     "react-apollo": "^2.5.3",
     "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "@monorepo/hardchor-scripts": "^0.0.1"
   }
 }
