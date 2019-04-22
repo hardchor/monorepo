@@ -33,6 +33,7 @@ jobs:
             - node_modules
             - packages/hardchor-scipts/node_modules
             - packages/serverless-appsync/node_modules
+            - packages/nextjs/node_modules
           key: v2-dependencies-{{ checksum "yarn.lock" }}
 
       # run tests!
