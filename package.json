@@ -6,12 +6,11 @@
   "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "yarn && lerna bootstrap",
     "format": "hardchor-scripts format",
     "test": "lerna exec yarn test",
-    "postinstall": "yarn postinstall:nextjs && yarn postinstall:serverless-appsync && ln -sf packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'",
-    "postinstall:nextjs": "ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts",
-    "postinstall:serverless-appsync": "ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts"
+    "preinstall": "yarn workspace @monorepo/hardchor-scripts install --ignore-scripts && yarn workspace @monorepo/hardchor-scripts build && yarn link-hardchor-scripts",
+    "hardchor-scripts:link": "ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts && ln -sf packages/hardchor-scripts/build/index.js ./packages/nextjs/node_modules/.bin/hardchor-scripts && ln -sf packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'"
   },
   "workspaces": {
     "packages": [
