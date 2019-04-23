@@ -10,5 +10,17 @@
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}
+	},
+	"analytics": {
+		"amplifyreact": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"storage": {
+		"uploads": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }
