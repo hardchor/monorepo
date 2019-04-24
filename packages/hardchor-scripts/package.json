@@ -1,6 +1,6 @@
 {
   "name": "@monorepo/hardchor-scripts",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "CLI for common scripts for my projects",
   "engines": {
     "node": ">= 8"
