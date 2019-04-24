@@ -9,7 +9,7 @@
     "format": "hardchor-scripts format",
     "test": "lerna exec yarn test",
     "link-scripts": "ln -sf ../../packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'",
-    "postinstall": "yarn workspace @monorepo/hardchor-scripts build && yarn link-scripts"
+    "postinstall": "yarn workspace @hardchor/hardchor-scripts build && yarn link-scripts"
   },
   "workspaces": {
     "packages": [
