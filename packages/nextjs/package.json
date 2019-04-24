@@ -29,6 +29,6 @@
     "react-dom": "^16.8.3"
   },
   "devDependencies": {
-    "@monorepo/hardchor-scripts": "^0.0.4"
+    "hardchor-scripts": "^0.0.4"
   }
 }

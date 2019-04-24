@@ -13,10 +13,10 @@ const { pkg, path: pkgPath } = readPkgUp.sync({
 const appDirectory = path.dirname(pkgPath);
 
 function resolveHardchorScripts() {
-  if (pkg.name === '@monorepo/hardchor-scripts') {
+  if (pkg.name === 'hardchor-scripts') {
     return require.resolve('./').replace(process.cwd(), '.');
   }
-  return resolveBin('@monorepo/hardchor-scripts');
+  return resolveBin('hardchor-scripts');
 }
 
 // eslint-disable-next-line complexity

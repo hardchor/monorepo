@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 let shouldThrow;
 try {
-  shouldThrow = require(`${process.cwd()}/package.json`).name === '@monorepo/hardchor-scripts'
+  shouldThrow = require(`${process.cwd()}/package.json`).name === 'hardchor-scripts'
     && Number(process.version.slice(1).split('.')[0]) < 8;
 } catch (error) {
   // ignore

@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/hardchor-scripts",
+  "name": "hardchor-scripts",
   "version": "0.0.4",
   "description": "CLI for common scripts for my projects",
   "engines": {
@@ -85,5 +85,6 @@
   "devDependencies": {
     "jest-in-case": "^1.0.2",
     "slash": "^2.0.0"
-  }
+  },
+  "gitHead": "1a75291fdec8e15d720b8cb8d4acba0d2a94e7c2"
 }

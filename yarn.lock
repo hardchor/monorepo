@@ -1914,6 +1914,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.7.tgz#85dbb71c510442d00c0631f99dae957ce44fd104"
   integrity sha512-suFHr6hcA9mp8vFrZTgrmqW2ZU3mbWsryQtQlY/QvwTISCw7nw/j+bCQPPohqmskhmqa5wLNuMHTTsc+xf1MQg==
 
+"@types/normalize-package-data@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
+  integrity sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
+
 "@types/q@^1.5.1":
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
@@ -2842,6 +2847,11 @@ arrify@^1.0.0, arrify@^1.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
   integrity sha1-iYUI2iIm84DfkEcoRWhJwVAaSw0=
 
+arrify@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/arrify/-/arrify-2.0.1.tgz#c9655e9331e0abcd588d2a7cad7e9956f66701fa"
+  integrity sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==
+
 asap@^2.0.0, asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
@@ -3008,10 +3018,10 @@ aws-sdk@2.329.0:
     uuid "3.1.0"
     xml2js "0.4.19"
 
-aws-sdk@^2.361.0, aws-sdk@^2.430.0:
-  version "2.441.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.441.0.tgz#40d4854aae132ab7a8d42e492669ff28db79f59d"
-  integrity sha512-PnS2lih7p6sPJYUeUSxab7VNsldcHEsCJddHXnnAZRxd2nVa8pAAbPSAauJIN9E6Z4DBhvX3nuQjj+roP/KBTg==
+aws-sdk@^2.404.0:
+  version "2.413.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.413.0.tgz#65c2dbe53ecb3f964fd9f18a850f8f1adc55f598"
+  integrity sha512-0KwDyjEwyXkItCy8kk9k2nBLGvhB1LzgTglsP80P+/6P6LdH0I47OG9wTXBsOGWqziG2Hp3gs1TxNrISf851Vw==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -3023,10 +3033,10 @@ aws-sdk@^2.361.0, aws-sdk@^2.430.0:
     uuid "3.3.2"
     xml2js "0.4.19"
 
-aws-sdk@^2.404.0:
-  version "2.413.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.413.0.tgz#65c2dbe53ecb3f964fd9f18a850f8f1adc55f598"
-  integrity sha512-0KwDyjEwyXkItCy8kk9k2nBLGvhB1LzgTglsP80P+/6P6LdH0I47OG9wTXBsOGWqziG2Hp3gs1TxNrISf851Vw==
+aws-sdk@^2.430.0, aws-sdk@^2.441.0:
+  version "2.441.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.441.0.tgz#40d4854aae132ab7a8d42e492669ff28db79f59d"
+  integrity sha512-PnS2lih7p6sPJYUeUSxab7VNsldcHEsCJddHXnnAZRxd2nVa8pAAbPSAauJIN9E6Z4DBhvX3nuQjj+roP/KBTg==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -5094,10 +5104,10 @@ dot-prop@^4.1.0, dot-prop@^4.1.1, dot-prop@^4.2.0:
   dependencies:
     is-obj "^1.0.0"
 
-dotenv@^6.1.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
-  integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
+dotenv@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-7.0.0.tgz#a2be3cd52736673206e8a85fb5210eea29628e7c"
+  integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
 
 download@^5.0.2:
   version "5.0.3"
@@ -9467,7 +9477,7 @@ nopt@~1.0.10:
   dependencies:
     abbrev "1"
 
-normalize-package-data@^2.0.0, normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5, normalize-package-data@^2.4.0:
+normalize-package-data@^2.0.0, normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5, normalize-package-data@^2.4.0, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
   integrity sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==
@@ -11112,6 +11122,14 @@ read-pkg-up@^4.0.0:
     find-up "^3.0.0"
     read-pkg "^3.0.0"
 
+read-pkg-up@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-5.0.0.tgz#b6a6741cb144ed3610554f40162aa07a6db621b8"
+  integrity sha512-XBQjqOBtTzyol2CpsQOw8LHV0XbDZVG7xMMjmXAJomlVY03WOBRmYgDJETlvcg0H63AJvPRwT7GFi5rvOzUOKg==
+  dependencies:
+    find-up "^3.0.0"
+    read-pkg "^5.0.0"
+
 read-pkg@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-1.1.0.tgz#f5ffaa5ecd29cb31c0474bca7d756b6bb29e3f28"
@@ -11147,6 +11165,16 @@ read-pkg@^4.0.1:
     normalize-package-data "^2.3.2"
     parse-json "^4.0.0"
     pify "^3.0.0"
+
+read-pkg@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.1.0.tgz#62b924384c4525a1a7a96e2d456b80df142b4390"
+  integrity sha512-NjNkqf8hlMuSxh+p8h8x8sCIfEv/MoRs/nYDmSRSAk879F9C94ADq+kHUJ4LTy5Nn0PYSmMYsy1mD4+lcXiBKg==
+  dependencies:
+    "@types/normalize-package-data" "^2.4.0"
+    normalize-package-data "^2.5.0"
+    parse-json "^4.0.0"
+    type-fest "^0.4.1"
 
 read@1, read@~1.0.1:
   version "1.0.7"
@@ -11655,12 +11683,12 @@ rollup-plugin-commonjs@^9.1.0:
     resolve "^1.10.0"
     rollup-pluginutils "^2.6.0"
 
-rollup-plugin-json@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-3.1.0.tgz#7c1daf60c46bc21021ea016bd00863561a03321b"
-  integrity sha512-BlYk5VspvGpjz7lAwArVzBXR60JK+4EKtPkCHouAWg39obk9S61hZYJDBfMK+oitPdoe11i69TlxKlMQNFC/Uw==
+rollup-plugin-json@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-json/-/rollup-plugin-json-4.0.0.tgz#a18da0a4b30bf5ca1ee76ddb1422afbb84ae2b9e"
+  integrity sha512-hgb8N7Cgfw5SZAkb3jf0QXii6QX/FOkiIq2M7BAQIEydjHvTyxXHQiIzZaTFgx1GK0cRCHOCBHIyEkkLdWKxow==
   dependencies:
-    rollup-pluginutils "^2.3.1"
+    rollup-pluginutils "^2.5.0"
 
 rollup-plugin-node-builtins@^2.1.2:
   version "2.1.2"
@@ -11727,7 +11755,7 @@ rollup-plugin-terser@^4.0.4:
     serialize-javascript "^1.6.1"
     terser "^3.14.1"
 
-rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.3.1, rollup-pluginutils@^2.6.0:
+rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.3.1, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.6.0.tgz#203706edd43dfafeaebc355d7351119402fc83ad"
   integrity sha512-aGQwspEF8oPKvg37u3p7h0cYNwmJR1sCBMZGZ5b9qy8HGtETknqjzcxrDRrcAnJNXN18lBH4Q9vZYth/p4n8jQ==
@@ -11735,7 +11763,7 @@ rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.3.1, rollup-pluginutils@^2.6.0:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
 
-rollup@^1.4.0:
+rollup@^1.10.1:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.10.1.tgz#aeb763bbe98f707dc6496708db88372fa66687e7"
   integrity sha512-pW353tmBE7QP622ITkGxtqF0d5gSRCVPD9xqM+fcPjudeZfoXMFW2sCzsTe2TU/zU1xamIjiS9xuFCPVT9fESw==
@@ -13112,6 +13140,11 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
+
+type-fest@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.4.1.tgz#8bdf77743385d8a4f13ba95f610f5ccd68c728f8"
+  integrity sha512-IwzA/LSfD2vC1/YDYMv/zHP4rDF1usCwllsDpbolT3D4fUepIO7f9K70jjmUewU/LmGUKJcwcVtDCpnKk4BPMw==
 
 type-is@^1.6.16:
   version "1.6.16"

@@ -9,7 +9,7 @@
     "format": "hardchor-scripts format",
     "test": "lerna exec yarn test",
     "link-scripts": "ln -sf ../../packages/hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'",
-    "preinstall": "yarn workspace @monorepo/hardchor-scripts install --ignore-scripts && yarn workspace @monorepo/hardchor-scripts build && yarn link-scripts"
+    "preinstall": "yarn workspace hardchor-scripts install --ignore-scripts && yarn workspace hardchor-scripts build && yarn link-scripts"
   },
   "workspaces": {
     "packages": [
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
-    "@monorepo/hardchor-scripts": "*",
+    "hardchor-scripts": "*",
     "husky": "^1.1.2",
     "lerna": "^3.4.3",
     "lint-staged": "^8.1.5"
