@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/serverless-appsync",
+  "name": "@hardchor/serverless-appsync",
   "version": "0.0.5",
   "main": "dist/index.js",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "dotenv": "^7.0.0"
   },
   "devDependencies": {
-    "@monorepo/hardchor-scripts": "^0.0.5",
+    "@hardchor/scripts": "^0.0.5",
     "commander": "^2.19.0",
     "hardchor-scripts": "^0.0.5",
     "nodemon": "^1.18.6",

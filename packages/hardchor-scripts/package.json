@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/hardchor-scripts",
+  "name": "@hardchor/scripts",
   "version": "0.0.5",
   "description": "CLI for common scripts for my projects",
   "engines": {

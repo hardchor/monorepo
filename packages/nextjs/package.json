@@ -1,5 +1,5 @@
 {
-  "name": "@monorepo/nextjs",
+  "name": "@hardchor/nextjs",
   "version": "0.0.5",
   "private": true,
   "description": "A next.js app",
@@ -29,6 +29,6 @@
     "react-dom": "^16.8.3"
   },
   "devDependencies": {
-    "@monorepo/hardchor-scripts": "^0.0.5"
+    "@hardchor/scripts": "^0.0.5"
   }
 }

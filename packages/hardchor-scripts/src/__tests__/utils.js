@@ -24,17 +24,17 @@ test('appDirectory is the dirname to the package.json', () => {
   expect(require('../utils').appDirectory).toBe(pkgPath);
 });
 
-test('resolveHardchorScripts resolves to src/index.js when in the @monorepo/hardchor-scripts package', () => {
-  mockPkg({ pkg: { name: '@monorepo/hardchor-scripts' } });
+test('resolveHardchorScripts resolves to src/index.js when in the @hardchor/scripts package', () => {
+  mockPkg({ pkg: { name: '@hardchor/scripts' } });
   expect(require('../utils').resolveHardchorScripts()).toBe(
     require.resolve('../').replace(process.cwd(), '.'),
   );
 });
 
-test('resolveHardchorScripts resolves to @monorepo/hardchor-scripts if not in the @monorepo/hardchor-scripts package', () => {
+test('resolveHardchorScripts resolves to @hardchor/scripts if not in the @hardchor/scripts package', () => {
   mockPkg({ pkg: { name: 'not-hardchor-scripts' } });
   whichSyncMock.mockImplementationOnce(() => require.resolve('../'));
-  expect(require('../utils').resolveHardchorScripts()).toBe('@monorepo/hardchor-scripts');
+  expect(require('../utils').resolveHardchorScripts()).toBe('@hardchor/scripts');
 });
 
 test("resolveBin resolves to the full path when it's not in $PATH", () => {

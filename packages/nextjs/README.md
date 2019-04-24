@@ -1,4 +1,4 @@
-# `@monorepo/nextjs`
+# `@hardchor/nextjs`
 
 > An example app to demonstrate the usage of next.js
 
