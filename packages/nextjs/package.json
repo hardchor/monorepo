@@ -1,6 +1,6 @@
 {
   "name": "@monorepo/nextjs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "description": "A next.js app",
   "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
@@ -29,6 +29,6 @@
     "react-dom": "^16.8.3"
   },
   "devDependencies": {
-    "@monorepo/hardchor-scripts": "^0.0.1"
+    "@monorepo/hardchor-scripts": "^1.0.0"
   }
 }
