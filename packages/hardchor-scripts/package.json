@@ -14,7 +14,8 @@
     "lint": "node src lint",
     "format": "node src format",
     "validate": "node src validate",
-    "run": "node src run"
+    "run": "node src run",
+    "prepublish": "yarn build"
   },
   "files": [
     "dist",
