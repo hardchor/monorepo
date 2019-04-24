@@ -1,6 +1,6 @@
 {
   "name": "@hardchor/serverless-appsync",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/index.js",
   "license": "MIT",
   "private": true,
@@ -23,7 +23,7 @@
     "dotenv": "^7.0.0"
   },
   "devDependencies": {
-    "@hardchor/scripts": "^0.0.5",
+    "@hardchor/scripts": "^0.0.6",
     "commander": "^2.19.0",
     "hardchor-scripts": "^0.0.5",
     "nodemon": "^1.18.6",

@@ -1,6 +1,6 @@
 {
   "name": "@hardchor/nextjs",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "description": "A next.js app",
   "author": "Burkhard Reffeling <burkhard.reffeling@gmail.com>",
@@ -29,6 +29,6 @@
     "react-dom": "^16.8.3"
   },
   "devDependencies": {
-    "@hardchor/scripts": "^0.0.5"
+    "@hardchor/scripts": "^0.0.6"
   }
 }
