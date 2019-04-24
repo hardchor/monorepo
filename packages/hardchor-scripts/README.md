@@ -16,7 +16,7 @@
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 
-> **Initially forked from [kcd-scripts](https://github.com/kentcdodds/kcd-scripts) and amended to my needs.**
+> **Initially forked from [kcd-scripts](https://github.com/kentcdodds/kcd-scripts) and amended to my needs!**
 
 ## The problem
 
