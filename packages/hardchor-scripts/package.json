@@ -8,6 +8,9 @@
   "bin": {
     "hardchor-scripts": "dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "node src test",
     "build": "node src build",
