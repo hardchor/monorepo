@@ -1,4 +1,4 @@
-const config = require('hardchor-scripts/jest');
+const config = require('@monorepo/hardchor-scripts/jest');
 
 module.exports = {
   ...config,

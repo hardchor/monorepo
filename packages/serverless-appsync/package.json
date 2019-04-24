@@ -23,6 +23,7 @@
     "dotenv": "^7.0.0"
   },
   "devDependencies": {
+    "@monorepo/hardchor-scripts": "^0.0.5",
     "commander": "^2.19.0",
     "hardchor-scripts": "^0.0.5",
     "nodemon": "^1.18.6",
