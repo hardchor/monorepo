@@ -11,3 +11,4 @@ My playground for different approaches to software development!
 - [**hardchor-scripts**](./packages/hardchor-scripts/README.md): Tooling library to ease common set-ups
 - [**serverless-appsync**](./packages/serverless-appsync/README.md): GraphQL-powered backend
 - [**nextjs**](./packages/nextjs/README.md): Next.js frontend connecting to AppSync 
+- [**amplify-react**](./packages/amplify-react/README.md): Create-react-app frontend using Amplify 

@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-react-20190426174627-authRole",
+            "UnauthRoleArn": "arn:aws:iam::164193466244:role/amplify-react-20190426174627-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::164193466244:role/amplify-react-20190426174627-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "amplify-react-20190426174627-deployment",
+            "UnauthRoleName": "amplify-react-20190426174627-unauthRole",
+            "StackName": "amplify-react-20190426174627",
+            "StackId": "arn:aws:cloudformation:eu-west-1:164193466244:stack/amplify-react-20190426174627/74b45d00-683a-11e9-8464-061b9f50c2ce"
+        },
+        "categories": {
+            "auth": {
+                "cognito2b4aefe1": {}
+            }
+        }
+    }
+}
