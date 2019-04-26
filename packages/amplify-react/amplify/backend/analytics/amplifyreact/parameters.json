@@ -1,10 +1,10 @@
 {
     "appName": "amplifyreact",
-    "roleName": "pinpointLambdaRoleaa721ff6",
-    "cloudWatchPolicyName": "cloudWatchPolicyaa721ff6",
-    "pinpointPolicyName": "pinpointPolicyaa721ff6",
-    "authPolicyName": "pinpoint_amplify_aa721ff6",
-    "unauthPolicyName": "pinpoint_amplify_aa721ff6",
+    "roleName": "pinpointLambdaRole9e797eb0",
+    "cloudWatchPolicyName": "cloudWatchPolicy9e797eb0",
+    "pinpointPolicyName": "pinpointPolicy9e797eb0",
+    "authPolicyName": "pinpoint_amplify_9e797eb0",
+    "unauthPolicyName": "pinpoint_amplify_9e797eb0",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },

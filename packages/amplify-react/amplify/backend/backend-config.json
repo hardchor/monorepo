@@ -6,7 +6,7 @@
 		}
 	},
 	"auth": {
-		"cognito32b37686": {
+		"cognito2b4aefe1": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation"
 		}
@@ -18,7 +18,7 @@
 		}
 	},
 	"storage": {
-		"uploads": {
+		"filestorage": {
 			"service": "S3",
 			"providerPlugin": "awscloudformation"
 		}
