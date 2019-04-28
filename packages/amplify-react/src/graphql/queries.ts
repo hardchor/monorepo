@@ -1,24 +1,121 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+export const getSession = `query GetSession($id: ID!) {
+  getSession(id: $id) {
     id
     name
-    description
+    facilitator {
+      id
+      name
+    }
+    participants {
+      id
+      name
+    }
   }
 }
 `;
-export const listTodos = `query ListTodos(
-  $filter: ModelTodoFilterInput
+export const listSessions = `query ListSessions(
+  $filter: ModelSessionFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSessions(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
-      description
+      facilitator {
+        id
+        name
+      }
+      participants {
+        id
+        name
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getParticipant = `query GetParticipant($id: ID!) {
+  getParticipant(id: $id) {
+    id
+    name
+  }
+}
+`;
+export const listParticipants = `query ListParticipants(
+  $filter: ModelParticipantFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listParticipants(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+    }
+    nextToken
+  }
+}
+`;
+export const getWorkItem = `query GetWorkItem($id: ID!) {
+  getWorkItem(id: $id) {
+    id
+    name
+    estimates {
+      id
+      estimate
+      participant {
+        id
+        name
+      }
+    }
+  }
+}
+`;
+export const listWorkItems = `query ListWorkItems(
+  $filter: ModelWorkItemFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWorkItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      estimates {
+        id
+        estimate
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getEstimate = `query GetEstimate($id: ID!) {
+  getEstimate(id: $id) {
+    id
+    estimate
+    participant {
+      id
+      name
+    }
+  }
+}
+`;
+export const listEstimates = `query ListEstimates(
+  $filter: ModelEstimateFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEstimates(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      estimate
+      participant {
+        id
+        name
+      }
     }
     nextToken
   }

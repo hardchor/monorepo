@@ -17,12 +17,7 @@
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"storage": {
-		"filestorage": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
-		}
-	},
+	"storage": {},
 	"api": {
 		"amplifyreact": {
 			"service": "AppSync",

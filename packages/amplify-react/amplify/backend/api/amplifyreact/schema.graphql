@@ -1,5 +1,31 @@
-type Todo @model {
+type Session @model {
   id: ID!
   name: String!
-  description: String
+  facilitator: Participant!
+  participants: [Participant!]
+}
+
+type Participant @model {
+  id: ID!
+  name: String!
+}
+
+type WorkItem @model {
+  id: ID!
+  name: String!
+  estimates: [Estimate!]
+}
+
+type Estimate @model {
+  id: ID!
+  estimate: PlanningPokerCard!
+  participant: Participant!
+}
+
+enum PlanningPokerCard {
+  EST_0
+  EST_1
+  EST_2
+  EST_3
+  EST_5
 }

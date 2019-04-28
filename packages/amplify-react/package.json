@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "amplify publish --invalidate-cache"
+    "deploy": "amplify publish --invalidate-cache",
+    "serve": "amplify serve"
   },
   "eslintConfig": {
     "extends": "react-app"
