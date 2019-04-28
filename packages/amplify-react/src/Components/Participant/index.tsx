@@ -1,29 +1,28 @@
-import React, { Component } from 'react';
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import { withAuthenticator } from 'aws-amplify-react';
-import awsmobile from '../../aws-exports';
-// import './App.css';
+import React, { FormEvent, FunctionComponent, useState } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
 import { createParticipant } from '../../graphql/mutations';
 import { CreateParticipantMutationVariables } from '../../API';
-
-Amplify.configure(awsmobile);
 
 const createParticipantMutation = (data: CreateParticipantMutationVariables) =>
   graphqlOperation(createParticipant, data);
 
-class App extends Component {
-  todoMutation = async () => {
-    const participantDetails = {
-      name: 'Aaron',
-    };
+const ParticipantForm: FunctionComponent = () => {
+  const [name, setName] = useState('');
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    const newEvent = await API.graphql(createParticipantMutation({ input: participantDetails }));
-    console.log(newEvent);
+    await API.graphql(createParticipantMutation({ input: { name } }));
   };
 
-  render() {
-    return <button onClick={this.todoMutation}>GraphQL Mutation</button>;
-  }
-}
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        What's your name?
+        <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  );
+};
 
-export default withAuthenticator(App, true);
+export default ParticipantForm;
