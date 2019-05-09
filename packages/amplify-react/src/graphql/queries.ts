@@ -5,14 +5,6 @@ export const getSession = `query GetSession($id: ID!) {
   getSession(id: $id) {
     id
     name
-    facilitator {
-      id
-      name
-    }
-    participants {
-      id
-      name
-    }
   }
 }
 `;
@@ -22,35 +14,6 @@ export const listSessions = `query ListSessions(
   $nextToken: String
 ) {
   listSessions(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      facilitator {
-        id
-        name
-      }
-      participants {
-        id
-        name
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getParticipant = `query GetParticipant($id: ID!) {
-  getParticipant(id: $id) {
-    id
-    name
-  }
-}
-`;
-export const listParticipants = `query ListParticipants(
-  $filter: ModelParticipantFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listParticipants(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
@@ -66,10 +29,6 @@ export const getWorkItem = `query GetWorkItem($id: ID!) {
     estimates {
       id
       estimate
-      participant {
-        id
-        name
-      }
     }
   }
 }
@@ -96,10 +55,6 @@ export const getEstimate = `query GetEstimate($id: ID!) {
   getEstimate(id: $id) {
     id
     estimate
-    participant {
-      id
-      name
-    }
   }
 }
 `;
@@ -112,10 +67,6 @@ export const listEstimates = `query ListEstimates(
     items {
       id
       estimate
-      participant {
-        id
-        name
-      }
     }
     nextToken
   }

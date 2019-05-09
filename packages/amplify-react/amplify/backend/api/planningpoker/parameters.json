@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "planningpoker",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognito4ee2b391",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

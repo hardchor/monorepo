@@ -3,7 +3,7 @@
 
 export type CreateSessionInput = {
   id?: string | null,
-  name: string,
+  name?: string | null,
 };
 
 export type UpdateSessionInput = {
@@ -12,20 +12,6 @@ export type UpdateSessionInput = {
 };
 
 export type DeleteSessionInput = {
-  id?: string | null,
-};
-
-export type CreateParticipantInput = {
-  id?: string | null,
-  name: string,
-};
-
-export type UpdateParticipantInput = {
-  id: string,
-  name?: string | null,
-};
-
-export type DeleteParticipantInput = {
   id?: string | null,
 };
 
@@ -100,14 +86,6 @@ export type ModelStringFilterInput = {
   beginsWith?: string | null,
 };
 
-export type ModelParticipantFilterInput = {
-  id?: ModelIDFilterInput | null,
-  name?: ModelStringFilterInput | null,
-  and?: Array< ModelParticipantFilterInput | null > | null,
-  or?: Array< ModelParticipantFilterInput | null > | null,
-  not?: ModelParticipantFilterInput | null,
-};
-
 export type ModelWorkItemFilterInput = {
   id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
@@ -137,17 +115,7 @@ export type CreateSessionMutation = {
   createSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
+    name: string | null,
   } | null,
 };
 
@@ -159,17 +127,7 @@ export type UpdateSessionMutation = {
   updateSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
+    name: string | null,
   } | null,
 };
 
@@ -181,53 +139,7 @@ export type DeleteSessionMutation = {
   deleteSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
-  } | null,
-};
-
-export type CreateParticipantMutationVariables = {
-  input: CreateParticipantInput,
-};
-
-export type CreateParticipantMutation = {
-  createParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
-  } | null,
-};
-
-export type UpdateParticipantMutationVariables = {
-  input: UpdateParticipantInput,
-};
-
-export type UpdateParticipantMutation = {
-  updateParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
-  } | null,
-};
-
-export type DeleteParticipantMutationVariables = {
-  input: DeleteParticipantInput,
-};
-
-export type DeleteParticipantMutation = {
-  deleteParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
+    name: string | null,
   } | null,
 };
 
@@ -244,11 +156,6 @@ export type CreateWorkItemMutation = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -266,11 +173,6 @@ export type UpdateWorkItemMutation = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -288,11 +190,6 @@ export type DeleteWorkItemMutation = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -306,11 +203,6 @@ export type CreateEstimateMutation = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -323,11 +215,6 @@ export type UpdateEstimateMutation = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -340,11 +227,6 @@ export type DeleteEstimateMutation = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -356,17 +238,7 @@ export type GetSessionQuery = {
   getSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
+    name: string | null,
   } | null,
 };
 
@@ -382,47 +254,7 @@ export type ListSessionsQuery = {
     items:  Array< {
       __typename: "Session",
       id: string,
-      name: string,
-      facilitator:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
-      participants:  Array< {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      } > | null,
-    } | null > | null,
-    nextToken: string | null,
-  } | null,
-};
-
-export type GetParticipantQueryVariables = {
-  id: string,
-};
-
-export type GetParticipantQuery = {
-  getParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
-  } | null,
-};
-
-export type ListParticipantsQueryVariables = {
-  filter?: ModelParticipantFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListParticipantsQuery = {
-  listParticipants:  {
-    __typename: "ModelParticipantConnection",
-    items:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
+      name: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -441,11 +273,6 @@ export type GetWorkItemQuery = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -482,11 +309,6 @@ export type GetEstimateQuery = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -503,11 +325,6 @@ export type ListEstimatesQuery = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -517,17 +334,7 @@ export type OnCreateSessionSubscription = {
   onCreateSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
+    name: string | null,
   } | null,
 };
 
@@ -535,17 +342,7 @@ export type OnUpdateSessionSubscription = {
   onUpdateSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
+    name: string | null,
   } | null,
 };
 
@@ -553,41 +350,7 @@ export type OnDeleteSessionSubscription = {
   onDeleteSession:  {
     __typename: "Session",
     id: string,
-    name: string,
-    facilitator:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
-    participants:  Array< {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    } > | null,
-  } | null,
-};
-
-export type OnCreateParticipantSubscription = {
-  onCreateParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
-  } | null,
-};
-
-export type OnUpdateParticipantSubscription = {
-  onUpdateParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
-  } | null,
-};
-
-export type OnDeleteParticipantSubscription = {
-  onDeleteParticipant:  {
-    __typename: "Participant",
-    id: string,
-    name: string,
+    name: string | null,
   } | null,
 };
 
@@ -600,11 +363,6 @@ export type OnCreateWorkItemSubscription = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -618,11 +376,6 @@ export type OnUpdateWorkItemSubscription = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -636,11 +389,6 @@ export type OnDeleteWorkItemSubscription = {
       __typename: "Estimate",
       id: string,
       estimate: PlanningPokerCard,
-      participant:  {
-        __typename: "Participant",
-        id: string,
-        name: string,
-      },
     } > | null,
   } | null,
 };
@@ -650,11 +398,6 @@ export type OnCreateEstimateSubscription = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -663,11 +406,6 @@ export type OnUpdateEstimateSubscription = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
 
@@ -676,10 +414,5 @@ export type OnDeleteEstimateSubscription = {
     __typename: "Estimate",
     id: string,
     estimate: PlanningPokerCard,
-    participant:  {
-      __typename: "Participant",
-      id: string,
-      name: string,
-    },
   } | null,
 };
