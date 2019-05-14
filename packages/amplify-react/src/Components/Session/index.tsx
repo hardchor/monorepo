@@ -4,6 +4,7 @@ import { GetSessionQueryVariables, GetSessionQuery } from '../../API';
 import { getSession as getSessionQuery } from '../../graphql/queries';
 import { graphqlOperation, API } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api/lib/types';
+import CreateWorkItemButton from '../CreateWorkItem';
 
 declare type GetSessionResult = GraphQLResult & {
   data: GetSessionQuery;
@@ -35,6 +36,7 @@ const Session: FunctionComponent<RouteComponentProps<{ sessionId: string }>> = (
   return (
     <div>
       <h2>Session {session.id}</h2>
+      {sessionId && <CreateWorkItemButton sessionId={sessionId} />}
     </div>
   );
 };

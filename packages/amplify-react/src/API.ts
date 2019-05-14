@@ -17,7 +17,7 @@ export type DeleteSessionInput = {
 
 export type CreateWorkItemInput = {
   id?: string | null,
-  name: string,
+  name?: string | null,
 };
 
 export enum PlanningPokerCard {
@@ -151,7 +151,7 @@ export type CreateWorkItemMutation = {
   createWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -168,7 +168,7 @@ export type UpdateWorkItemMutation = {
   updateWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -185,7 +185,7 @@ export type DeleteWorkItemMutation = {
   deleteWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -268,7 +268,7 @@ export type GetWorkItemQuery = {
   getWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -289,7 +289,7 @@ export type ListWorkItemsQuery = {
     items:  Array< {
       __typename: "WorkItem",
       id: string,
-      name: string,
+      name: string | null,
       estimates:  Array< {
         __typename: "Estimate",
         id: string,
@@ -358,7 +358,7 @@ export type OnCreateWorkItemSubscription = {
   onCreateWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -371,7 +371,7 @@ export type OnUpdateWorkItemSubscription = {
   onUpdateWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,
@@ -384,7 +384,7 @@ export type OnDeleteWorkItemSubscription = {
   onDeleteWorkItem:  {
     __typename: "WorkItem",
     id: string,
-    name: string,
+    name: string | null,
     estimates:  Array< {
       __typename: "Estimate",
       id: string,

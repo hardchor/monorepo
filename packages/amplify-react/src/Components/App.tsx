@@ -6,6 +6,7 @@ import awsconfig from '../aws-exports';
 import './App.css';
 import Home from './Home';
 import Session from './Session';
+import WorkItem from './WorkItem';
 
 Amplify.configure(awsconfig);
 
@@ -20,6 +21,7 @@ const App: FunctionComponent = () => {
       <Router>
         <Home path="/" />
         <Session path="/session/:sessionId" />
+        <WorkItem path="/session/:sessionId/work-item/:workItemId" />
       </Router>
     </div>
   );
