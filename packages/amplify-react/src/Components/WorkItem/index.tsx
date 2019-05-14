@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { GetWorkItemQueryVariables, GetWorkItemQuery } from '../../API';
-import { getWorkItem as getWorkItemQuery } from '../../graphql/queries';
 import { graphqlOperation, API } from 'aws-amplify';
 import { GraphQLResult } from '@aws-amplify/api/lib/types';
+import { GetWorkItemQueryVariables, GetWorkItemQuery, PlanningPokerCard } from '../../API';
+import { getWorkItem as getWorkItemQuery } from '../../graphql/queries';
+import CreateEstimate from '../CreateEstimate';
 
 declare type GetWorkItemResult = GraphQLResult & {
   data: GetWorkItemQuery;
@@ -37,6 +38,8 @@ const WorkItem: FunctionComponent<RouteComponentProps<{ workItemId: string }>> =
   return (
     <div>
       <h2>Work Item {workItem.id}</h2>
+      {workItemId && <CreateEstimate workItemId={workItemId} estimate={PlanningPokerCard.EST_0} />}
+      {workItemId && <CreateEstimate workItemId={workItemId} estimate={PlanningPokerCard.EST_1} />}
     </div>
   );
 };

@@ -20,8 +20,9 @@ const App: FunctionComponent = () => {
       <h1>Planning Poker</h1>
       <Router>
         <Home path="/" />
-        <Session path="/session/:sessionId" />
-        <WorkItem path="/session/:sessionId/work-item/:workItemId" />
+        <Session path="session/:sessionId">
+          <WorkItem path="work-item/:workItemId" />
+        </Session>
       </Router>
     </div>
   );

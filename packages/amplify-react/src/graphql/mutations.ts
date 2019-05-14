@@ -27,8 +27,11 @@ export const createWorkItem = `mutation CreateWorkItem($input: CreateWorkItemInp
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
@@ -38,8 +41,11 @@ export const updateWorkItem = `mutation UpdateWorkItem($input: UpdateWorkItemInp
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
@@ -49,8 +55,11 @@ export const deleteWorkItem = `mutation DeleteWorkItem($input: DeleteWorkItemInp
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }

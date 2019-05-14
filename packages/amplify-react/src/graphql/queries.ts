@@ -27,8 +27,11 @@ export const getWorkItem = `query GetWorkItem($id: ID!) {
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
@@ -43,8 +46,7 @@ export const listWorkItems = `query ListWorkItems(
       id
       name
       estimates {
-        id
-        estimate
+        nextToken
       }
     }
     nextToken

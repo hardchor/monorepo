@@ -41,11 +41,13 @@ export type DeleteWorkItemInput = {
 export type CreateEstimateInput = {
   id?: string | null,
   estimate: PlanningPokerCard,
+  workItemEstimatesId?: string | null,
 };
 
 export type UpdateEstimateInput = {
   id: string,
   estimate?: PlanningPokerCard | null,
+  workItemEstimatesId?: string | null,
 };
 
 export type DeleteEstimateInput = {
@@ -152,11 +154,15 @@ export type CreateWorkItemMutation = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -169,11 +175,15 @@ export type UpdateWorkItemMutation = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -186,11 +196,15 @@ export type DeleteWorkItemMutation = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -269,11 +283,15 @@ export type GetWorkItemQuery = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -290,11 +308,10 @@ export type ListWorkItemsQuery = {
       __typename: "WorkItem",
       id: string,
       name: string | null,
-      estimates:  Array< {
-        __typename: "Estimate",
-        id: string,
-        estimate: PlanningPokerCard,
-      } > | null,
+      estimates:  {
+        __typename: "ModelEstimateConnection",
+        nextToken: string | null,
+      } | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -359,11 +376,15 @@ export type OnCreateWorkItemSubscription = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -372,11 +393,15 @@ export type OnUpdateWorkItemSubscription = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
@@ -385,11 +410,15 @@ export type OnDeleteWorkItemSubscription = {
     __typename: "WorkItem",
     id: string,
     name: string | null,
-    estimates:  Array< {
-      __typename: "Estimate",
-      id: string,
-      estimate: PlanningPokerCard,
-    } > | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 

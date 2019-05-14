@@ -16,7 +16,10 @@ declare type Session = {
 
 const getSession = (query: GetSessionQueryVariables) => graphqlOperation(getSessionQuery, query);
 
-const Session: FunctionComponent<RouteComponentProps<{ sessionId: string }>> = ({ sessionId }) => {
+const Session: FunctionComponent<RouteComponentProps<{ sessionId: string }>> = ({
+  sessionId,
+  children,
+}) => {
   const [session, setSession] = useState({} as Session);
 
   const fetchSession = async (id: string) => {
@@ -37,6 +40,7 @@ const Session: FunctionComponent<RouteComponentProps<{ sessionId: string }>> = (
     <div>
       <h2>Session {session.id}</h2>
       {sessionId && <CreateWorkItemButton sessionId={sessionId} />}
+      {children}
     </div>
   );
 };

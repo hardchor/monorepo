@@ -19,7 +19,7 @@ type Session @model @auth(rules: [{ allow: owner }]) {
 type WorkItem @model @auth(rules: [{ allow: owner }]) {
   id: ID!
   name: String
-  estimates: [Estimate!]
+  estimates: [Estimate] @connection
 }
 
 type Estimate @model @auth(rules: [{ allow: owner }]) {

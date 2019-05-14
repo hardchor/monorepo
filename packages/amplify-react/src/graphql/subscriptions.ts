@@ -27,8 +27,11 @@ export const onCreateWorkItem = `subscription OnCreateWorkItem {
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
@@ -38,8 +41,11 @@ export const onUpdateWorkItem = `subscription OnUpdateWorkItem {
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
@@ -49,8 +55,11 @@ export const onDeleteWorkItem = `subscription OnDeleteWorkItem {
     id
     name
     estimates {
-      id
-      estimate
+      items {
+        id
+        estimate
+      }
+      nextToken
     }
   }
 }
