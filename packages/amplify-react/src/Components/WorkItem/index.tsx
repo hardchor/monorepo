@@ -1,43 +1,31 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { graphqlOperation, API } from 'aws-amplify';
-import { GraphQLResult } from '@aws-amplify/api/lib/types';
-import { GetWorkItemQueryVariables, GetWorkItemQuery, PlanningPokerCard } from '../../API';
+import { GetWorkItemQuery } from '../../API';
 import { getWorkItem as getWorkItemQuery } from '../../graphql/queries';
 import CreateEstimates from './CreateEstimates';
 import ListEstimates from './ListEstimates';
-import { Model } from '../../../types/models';
-
-declare type GetWorkItemResult = GraphQLResult & {
-  data: GetWorkItemQuery;
-};
-
-const getWorkItem = (query: GetWorkItemQueryVariables) => graphqlOperation(getWorkItemQuery, query);
+import useQuery from '../../hooks/useQuery';
 
 const ShowWorkItem: FunctionComponent<RouteComponentProps<{ workItemId: string }>> = ({
   workItemId,
 }) => {
-  const [workItem, setWorkItem] = useState({} as GetWorkItemQuery['getWorkItem']);
-
-  const fetchWorkItem = async (id: string) => {
-    const { data } = (await API.graphql(getWorkItem({ id }))) as GetWorkItemResult;
-
-    if (data.getWorkItem) {
-      setWorkItem(data.getWorkItem);
-    }
-  };
-
-  useEffect(() => {
-    if (!workItemId) return;
-
-    fetchWorkItem(workItemId);
-  }, [workItemId]);
+  const { data, error, loading, refetch } = useQuery<GetWorkItemQuery>(getWorkItemQuery, {
+    id: workItemId,
+  });
+  const { getWorkItem: workItem } = data;
 
   return (
     <div>
-      <h2>Work Item {workItemId}</h2>
-      {workItemId && <CreateEstimates workItemId={workItemId} />}
-      {workItem && workItem.estimates && workItem.estimates.items && (
+      <h2>Work Item {workItem && workItem.id}</h2>
+      {loading && 'Loading ...'}
+      {!loading && error && <p>Error :(</p>}
+      {!loading && workItem && workItem.id && (
+        <div>
+          <CreateEstimates workItemId={workItem.id} />
+          <button onClick={() => refetch()}>Reload</button>
+        </div>
+      )}
+      {!loading && workItem && workItem.estimates && workItem.estimates.items && (
         <ListEstimates estimates={workItem.estimates.items} />
       )}
     </div>

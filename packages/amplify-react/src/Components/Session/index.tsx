@@ -1,45 +1,30 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { GetSessionQueryVariables, GetSessionQuery } from '../../API';
+import { GetSessionQuery } from '../../API';
 import { getSession as getSessionQuery } from '../../graphql/queries';
-import { graphqlOperation, API } from 'aws-amplify';
-import { GraphQLResult } from '@aws-amplify/api/lib/types';
 import CreateWorkItemButton from '../CreateWorkItem';
-
-declare type GetSessionResult = GraphQLResult & {
-  data: GetSessionQuery;
-};
-declare type Session = {
-  id: string;
-  name: string | null;
-};
-
-const getSession = (query: GetSessionQueryVariables) => graphqlOperation(getSessionQuery, query);
+import useQuery from '../../hooks/useQuery';
 
 const Session: FunctionComponent<RouteComponentProps<{ sessionId: string }>> = ({
   sessionId,
   children,
 }) => {
-  const [session, setSession] = useState({} as Session);
-
-  const fetchSession = async (id: string) => {
-    const { data } = (await API.graphql(getSession({ id }))) as GetSessionResult;
-
-    if (data.getSession) {
-      setSession(data.getSession);
-    }
-  };
-
-  useEffect(() => {
-    if (!sessionId) return;
-
-    fetchSession(sessionId);
-  }, [sessionId]);
+  const { data, error, loading, refetch } = useQuery<GetSessionQuery>(getSessionQuery, {
+    id: sessionId,
+  });
+  const { getSession: session } = data;
 
   return (
     <div>
-      <h2>Session {session.id}</h2>
-      {sessionId && <CreateWorkItemButton sessionId={sessionId} />}
+      <h2>Session {session && session.id}</h2>
+      {loading && 'Loading ...'}
+      {!loading && error && <p>Error :(</p>}
+      {!loading && session && session.id && (
+        <div>
+          <CreateWorkItemButton sessionId={session.id} />
+          <button onClick={() => refetch()}>Reload</button>
+        </div>
+      )}
       {children}
     </div>
   );
