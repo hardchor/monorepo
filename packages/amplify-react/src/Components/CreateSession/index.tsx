@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createSession } from '../../graphql/mutations';
 import { CreateSessionInput } from '../../API';
-import path from 'ramda/es/path';
+import { path } from 'ramda';
 import { navigate } from '@reach/router';
 
 const createSessionMutation = (input: CreateSessionInput) =>
