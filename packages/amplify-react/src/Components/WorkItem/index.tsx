@@ -1,18 +1,25 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { GetWorkItemQuery } from '../../API';
+import { GetWorkItemQuery, OnUpdateWorkItemSubscription } from '../../API';
 import { getWorkItem as getWorkItemQuery } from '../../graphql/queries';
+import { onCreateEstimate as createEstimateSubscription } from '../../graphql/subscriptions';
 import CreateEstimates from './CreateEstimates';
 import ListEstimates from './ListEstimates';
 import useQuery from '../../hooks/useQuery';
+import useSubscription from '../../hooks/useSubscription';
 
 const ShowWorkItem: FunctionComponent<RouteComponentProps<{ workItemId: string }>> = ({
   workItemId,
 }) => {
-  const { data, error, loading, refetch } = useQuery<GetWorkItemQuery>(getWorkItemQuery, {
+  const {
+    data: { getWorkItem: workItem },
+    error,
+    loading,
+    refetch,
+  } = useQuery<GetWorkItemQuery>(getWorkItemQuery, {
     id: workItemId,
   });
-  const { getWorkItem: workItem } = data;
+  useSubscription<OnUpdateWorkItemSubscription>(() => refetch(), createEstimateSubscription, {});
 
   return (
     <div>
