@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { GetWorkItemQuery, OnUpdateWorkItemSubscription } from '../../API';
+import { GetWorkItemQuery, OnCreateEstimateSubscription } from '../../API';
 import { getWorkItem as getWorkItemQuery } from '../../graphql/queries';
 import { onCreateEstimate as createEstimateSubscription } from '../../graphql/subscriptions';
 import CreateEstimates from './CreateEstimates';
@@ -19,7 +19,8 @@ const ShowWorkItem: FunctionComponent<RouteComponentProps<{ workItemId: string }
   } = useQuery<GetWorkItemQuery>(getWorkItemQuery, {
     id: workItemId,
   });
-  useSubscription<OnUpdateWorkItemSubscription>(() => refetch(), createEstimateSubscription, {});
+  // TODO: currently subscribing to all changes
+  useSubscription<OnCreateEstimateSubscription>(() => refetch(), createEstimateSubscription, {});
 
   return (
     <div>
