@@ -57,7 +57,6 @@ jobs:
           keys:
             - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
             - v1-amplify-react-dependencies-
-      - run: yarn workspace @hardchor/scripts install
       - run: yarn workspace @hardchor/amplify-react install
       - save_cache:
           paths:
