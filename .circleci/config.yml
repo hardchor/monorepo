@@ -55,12 +55,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "yarn.lock" }}
-            - v2-dependencies-
+            - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
+            - v1-amplify-react-dependencies-
       - run: yarn workspace @hardchor/amplify-react install
       - save_cache:
           paths:
             - node_modules
             - packages/amplify-react/node_modules
-          key: v2-dependencies-{{ checksum "yarn.lock" }}
+          key: v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
       - run: yarn workspace @hardchor/amplify-react test
