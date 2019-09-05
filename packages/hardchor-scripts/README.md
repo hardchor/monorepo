@@ -49,7 +49,7 @@ This module is distributed via [npm][npm] which is bundled with [node][node] and
 should be installed as one of your project's `devDependencies`:
 
 ```
-npm install --save-dev hardchor-scripts
+yarn add -D @hardchor/scripts
 ```
 
 ## Usage
@@ -79,7 +79,7 @@ So, if we were to do this for ESLint, you could create an `.eslintrc` with the
 contents of:
 
 ```
-{"extends": "./node_modules/hardchor-scripts/eslint.js"}
+{"extends": "./node_modules/@hardchor/scripts/eslint.js"}
 ```
 
 > Note: for now, you'll have to include an `.eslintignore` in your project until
@@ -88,13 +88,13 @@ contents of:
 Or, for `babel`, a `.babelrc` with:
 
 ```
-{"presets": ["hardchor-scripts/babel"]}
+{"presets": ["@hardchor/scripts/babel"]}
 ```
 
 Or, for `jest`:
 
 ```javascript
-const { jest: jestConfig } = require('hardchor-scripts/config');
+const { jest: jestConfig } = require('@hardchor/scripts/config');
 module.exports = Object.assign(jestConfig, {
   // your overrides here
 
@@ -115,11 +115,11 @@ This is inspired by `kcd-scripts` and `react-scripts`.
 
 [npm]: https://www.npmjs.com/
 [node]: https://nodejs.org
-[version-badge]: https://img.shields.io/npm/v/hardchor-scripts.svg?style=flat-square
-[package]: https://www.npmjs.com/package/hardchor-scripts
-[downloads-badge]: https://img.shields.io/npm/dm/hardchor-scripts.svg?style=flat-square
-[npmcharts]: http://npmcharts.com/compare/hardchor-scripts
-[license-badge]: https://img.shields.io/npm/l/hardchor-scripts.svg?style=flat-square
+[version-badge]: https://img.shields.io/npm/v/@hardchor/scripts.svg?style=flat-square
+[package]: https://www.npmjs.com/package/@hardchor/scripts
+[downloads-badge]: https://img.shields.io/npm/dm/@hardchor/scripts.svg?style=flat-square
+[npmcharts]: http://npmcharts.com/compare/@hardchor/scripts
+[license-badge]: https://img.shields.io/npm/l/@hardchor/scripts.svg?style=flat-square
 [license]: https://github.com/hardchor/monorepo/blob/master/LICENSE
 [prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs]: http://makeapullrequest.com
