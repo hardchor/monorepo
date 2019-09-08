@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createWorkItem } from '../../graphql/mutations';
 import { CreateWorkItemInput } from '../../API';
-import path from 'ramda/es/path';
+import path from 'ramda/src/path';
 import { navigate } from '@reach/router';
 
 const createWorkItemMutation = (input: CreateWorkItemInput) =>
