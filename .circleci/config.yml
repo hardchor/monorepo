@@ -73,10 +73,10 @@ jobs:
       - run:
           name: 'Checkout Amplify test Environment'
           command: |
-            amplify env list
-            amplify init --amplify "{\"envName\":\"test\"}" --providers "{\"awscloudformation\":{\"useProfile\":true,\"profileName\":\"default\"}}" --yes
+            yarn workspace @hardchor/amplify-react amplify env list
+            yarn workspace @hardchor/amplify-react amplify init --amplify "{\"envName\":\"test\"}" --providers "{\"awscloudformation\":{\"useProfile\":true,\"profileName\":\"default\"}}" --yes
       - run:
           name: 'Deploy to test'
           command: |
-            amplify publish --invalidateCloudFront --codegen "{\"generateCode\":false}" -- yes
+            yarn workspace @hardchor/amplify-react amplify publish --invalidateCloudFront --codegen "{\"generateCode\":false}" -- yes
       - run: yarn workspace @hardchor/amplify-react test
