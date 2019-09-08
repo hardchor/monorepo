@@ -34,7 +34,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v2-dependencies-
 
-      - run: yarn workspace @hardchor/scripts install --ignore-scripts --prod
+      - run: yarn workspace @hardchor/scripts install --prod
       - run: yarn install
 
       - save_cache:
@@ -58,7 +58,7 @@ jobs:
           keys:
             - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
             - v1-amplify-react-dependencies-
-      - run: yarn workspace @hardchor/scripts install --ignore-scripts --prod
+      - run: yarn workspace @hardchor/scripts install --prod
       - run: yarn workspace @hardchor/amplify-react install
       - save_cache:
           paths:
