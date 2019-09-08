@@ -37,8 +37,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v2-dependencies-
 
-      - run: yarn workspace @hardchor/scripts install --prod
-      - run: yarn install
+      - run: yarn workspace @hardchor/scripts install --prod --frozen-lockfile
+      - run: yarn install --frozen-lockfile
 
       - save_cache:
           paths:
@@ -63,8 +63,8 @@ jobs:
           keys:
             - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
             - v1-amplify-react-dependencies-
-      - run: yarn workspace @hardchor/scripts install --prod
-      - run: yarn workspace @hardchor/amplify-react install
+      - run: yarn workspace @hardchor/scripts install --prod --frozen-lockfile
+      - run: yarn workspace @hardchor/amplify-react install --frozen-lockfile
       - save_cache:
           paths:
             - node_modules
