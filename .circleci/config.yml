@@ -58,7 +58,7 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup:
-          profile-name: serverless
+          profile-name: default
       - restore_cache:
           keys:
             - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
@@ -70,4 +70,13 @@ jobs:
             - node_modules
             - packages/amplify-react/node_modules
           key: v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: 'Checkout Amplify test Environment'
+          command: |
+            amplify env list
+            amplify init --amplify "{\"envName\":\"test\"}" --providers "{\"awscloudformation\":{\"useProfile\":true,\"profileName\":\"default\"}}" --yes
+      - run:
+          name: 'Deploy to test'
+          command: |
+            amplify publish --invalidateCloudFront --codegen "{\"generateCode\":false}" -- yes
       - run: yarn workspace @hardchor/amplify-react test
