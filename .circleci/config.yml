@@ -46,7 +46,7 @@ jobs:
           key: v2-dependencies-{{ checksum "yarn.lock" }}
 
       # run tests!
-      - run: yarn test
+      - run: yarn test --stream ----ignore @hardchor/amplify-react
 
   build-amplify-react:
     docker:
