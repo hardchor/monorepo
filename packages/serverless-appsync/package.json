@@ -15,9 +15,7 @@
     "playground": "serverless graphql-playground",
     "user:create": "hardchor-scripts run src/tools/createUser.js",
     "env:export": "serverless export-env",
-    "test": "hardchor-scripts test --passWithNoTests",
-    "link-scripts": "ln -sf ../hardchor-scripts/build/index.js ./node_modules/.bin/hardchor-scripts && echo '\n>>> Remove me once https://github.com/yarnpkg/yarn/issues/3911 and https://github.com/yarnpkg/yarn/issues/3421 are resolved! <<<\n'",
-    "postinstall": "yarn link-scripts"
+    "test": "hardchor-scripts test --passWithNoTests"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
