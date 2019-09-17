@@ -2,25 +2,39 @@
   "name": "@hardchor/amplify-react",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@aws-amplify/cli": "^1.6.3",
-    "@types/jest": "24.0.11",
-    "@types/node": "11.13.7",
-    "@types/react": "16.8.14",
-    "@types/react-dom": "16.8.4",
-    "aws-amplify": "^1.1.26",
-    "aws-amplify-react": "^2.3.6",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0",
-    "typescript": "3.4.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "amplify publish --invalidate-cache"
+    "deploy": "amplify publish --invalidate-cache",
+    "serve": "amplify serve --yes"
+  },
+  "dependencies": {
+    "@aws-amplify/cli": "^1.6.3",
+    "@hapi/joi": "^15.0.1",
+    "@reach/router": "^1.2.1",
+    "aws-amplify": "^1.1.26",
+    "aws-amplify-react": "^2.3.6",
+    "aws-sdk": "^2.488.0",
+    "final-form": "^4.12.0",
+    "ramda": "^0.26.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-final-form-hooks": "^2.0.0",
+    "react-scripts": "^3.0.0",
+    "typescript": "^3.4.5",
+    "use-deep-compare-effect": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/hapi__joi": "^15.0.1",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^12.7.2",
+    "@types/ramda": "^0.26.9",
+    "@types/reach__router": "^1.2.4",
+    "@types/react": "^16.8.14",
+    "@types/react-dom": "^16.8.4",
+    "@types/zen-observable": "^0.8.0"
   },
   "eslintConfig": {
     "extends": "react-app"

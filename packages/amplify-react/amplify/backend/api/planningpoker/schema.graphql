@@ -1,0 +1,37 @@
+type Session @model @auth(rules: [{ allow: owner }]) {
+  # @auth(
+  #   rules: [
+  #     { allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+  #     { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
+  #   ]
+  # )
+  id: ID!
+  name: String
+  # facilitator: Participant!
+  # participants: [Participant!]
+}
+
+# type Participant @model @auth(rules: [{ allow: owner }]) {
+#   id: ID!
+#   name: String!
+# }
+
+type WorkItem @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  name: String
+  estimates: [Estimate!] @connection
+}
+
+type Estimate @model @auth(rules: [{ allow: owner }]) {
+  id: ID!
+  estimate: PlanningPokerCard!
+  # participant: Participant!
+}
+
+enum PlanningPokerCard {
+  EST_0
+  EST_1
+  EST_2
+  EST_3
+  EST_5
+}

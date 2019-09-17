@@ -1,29 +1,65 @@
 /* tslint:disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateTodoInput = {
+export type CreateSessionInput = {
   id?: string | null,
-  name: string,
-  description?: string | null,
+  name?: string | null,
 };
 
-export type UpdateTodoInput = {
+export type UpdateSessionInput = {
   id: string,
   name?: string | null,
-  description?: string | null,
 };
 
-export type DeleteTodoInput = {
+export type DeleteSessionInput = {
   id?: string | null,
 };
 
-export type ModelTodoFilterInput = {
+export type CreateWorkItemInput = {
+  id?: string | null,
+  name?: string | null,
+};
+
+export enum PlanningPokerCard {
+  EST_0 = "EST_0",
+  EST_1 = "EST_1",
+  EST_2 = "EST_2",
+  EST_3 = "EST_3",
+  EST_5 = "EST_5",
+}
+
+
+export type UpdateWorkItemInput = {
+  id: string,
+  name?: string | null,
+};
+
+export type DeleteWorkItemInput = {
+  id?: string | null,
+};
+
+export type CreateEstimateInput = {
+  id?: string | null,
+  estimate: PlanningPokerCard,
+  workItemEstimatesId?: string | null,
+};
+
+export type UpdateEstimateInput = {
+  id: string,
+  estimate?: PlanningPokerCard | null,
+  workItemEstimatesId?: string | null,
+};
+
+export type DeleteEstimateInput = {
+  id?: string | null,
+};
+
+export type ModelSessionFilterInput = {
   id?: ModelIDFilterInput | null,
   name?: ModelStringFilterInput | null,
-  description?: ModelStringFilterInput | null,
-  and?: Array< ModelTodoFilterInput | null > | null,
-  or?: Array< ModelTodoFilterInput | null > | null,
-  not?: ModelTodoFilterInput | null,
+  and?: Array< ModelSessionFilterInput | null > | null,
+  or?: Array< ModelSessionFilterInput | null > | null,
+  not?: ModelSessionFilterInput | null,
 };
 
 export type ModelIDFilterInput = {
@@ -52,100 +88,360 @@ export type ModelStringFilterInput = {
   beginsWith?: string | null,
 };
 
-export type CreateTodoMutationVariables = {
-  input: CreateTodoInput,
+export type ModelWorkItemFilterInput = {
+  id?: ModelIDFilterInput | null,
+  name?: ModelStringFilterInput | null,
+  and?: Array< ModelWorkItemFilterInput | null > | null,
+  or?: Array< ModelWorkItemFilterInput | null > | null,
+  not?: ModelWorkItemFilterInput | null,
 };
 
-export type CreateTodoMutation = {
-  createTodo:  {
-    __typename: "Todo",
+export type ModelEstimateFilterInput = {
+  id?: ModelIDFilterInput | null,
+  estimate?: ModelPlanningPokerCardFilterInput | null,
+  and?: Array< ModelEstimateFilterInput | null > | null,
+  or?: Array< ModelEstimateFilterInput | null > | null,
+  not?: ModelEstimateFilterInput | null,
+};
+
+export type ModelPlanningPokerCardFilterInput = {
+  eq?: PlanningPokerCard | null,
+  ne?: PlanningPokerCard | null,
+};
+
+export type CreateSessionMutationVariables = {
+  input: CreateSessionInput,
+};
+
+export type CreateSessionMutation = {
+  createSession:  {
+    __typename: "Session",
     id: string,
-    name: string,
-    description: string | null,
+    name: string | null,
   } | null,
 };
 
-export type UpdateTodoMutationVariables = {
-  input: UpdateTodoInput,
+export type UpdateSessionMutationVariables = {
+  input: UpdateSessionInput,
 };
 
-export type UpdateTodoMutation = {
-  updateTodo:  {
-    __typename: "Todo",
+export type UpdateSessionMutation = {
+  updateSession:  {
+    __typename: "Session",
     id: string,
-    name: string,
-    description: string | null,
+    name: string | null,
   } | null,
 };
 
-export type DeleteTodoMutationVariables = {
-  input: DeleteTodoInput,
+export type DeleteSessionMutationVariables = {
+  input: DeleteSessionInput,
 };
 
-export type DeleteTodoMutation = {
-  deleteTodo:  {
-    __typename: "Todo",
+export type DeleteSessionMutation = {
+  deleteSession:  {
+    __typename: "Session",
     id: string,
-    name: string,
-    description: string | null,
+    name: string | null,
   } | null,
 };
 
-export type GetTodoQueryVariables = {
+export type CreateWorkItemMutationVariables = {
+  input: CreateWorkItemInput,
+};
+
+export type CreateWorkItemMutation = {
+  createWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type UpdateWorkItemMutationVariables = {
+  input: UpdateWorkItemInput,
+};
+
+export type UpdateWorkItemMutation = {
+  updateWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type DeleteWorkItemMutationVariables = {
+  input: DeleteWorkItemInput,
+};
+
+export type DeleteWorkItemMutation = {
+  deleteWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type CreateEstimateMutationVariables = {
+  input: CreateEstimateInput,
+};
+
+export type CreateEstimateMutation = {
+  createEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type UpdateEstimateMutationVariables = {
+  input: UpdateEstimateInput,
+};
+
+export type UpdateEstimateMutation = {
+  updateEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type DeleteEstimateMutationVariables = {
+  input: DeleteEstimateInput,
+};
+
+export type DeleteEstimateMutation = {
+  deleteEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type GetSessionQueryVariables = {
   id: string,
 };
 
-export type GetTodoQuery = {
-  getTodo:  {
-    __typename: "Todo",
+export type GetSessionQuery = {
+  getSession:  {
+    __typename: "Session",
     id: string,
-    name: string,
-    description: string | null,
+    name: string | null,
   } | null,
 };
 
-export type ListTodosQueryVariables = {
-  filter?: ModelTodoFilterInput | null,
+export type ListSessionsQueryVariables = {
+  filter?: ModelSessionFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListTodosQuery = {
-  listTodos:  {
-    __typename: "ModelTodoConnection",
+export type ListSessionsQuery = {
+  listSessions:  {
+    __typename: "ModelSessionConnection",
     items:  Array< {
-      __typename: "Todo",
+      __typename: "Session",
       id: string,
-      name: string,
-      description: string | null,
+      name: string | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
 };
 
-export type OnCreateTodoSubscription = {
-  onCreateTodo:  {
-    __typename: "Todo",
+export type GetWorkItemQueryVariables = {
+  id: string,
+};
+
+export type GetWorkItemQuery = {
+  getWorkItem:  {
+    __typename: "WorkItem",
     id: string,
-    name: string,
-    description: string | null,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
   } | null,
 };
 
-export type OnUpdateTodoSubscription = {
-  onUpdateTodo:  {
-    __typename: "Todo",
-    id: string,
-    name: string,
-    description: string | null,
+export type ListWorkItemsQueryVariables = {
+  filter?: ModelWorkItemFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListWorkItemsQuery = {
+  listWorkItems:  {
+    __typename: "ModelWorkItemConnection",
+    items:  Array< {
+      __typename: "WorkItem",
+      id: string,
+      name: string | null,
+      estimates:  {
+        __typename: "ModelEstimateConnection",
+        nextToken: string | null,
+      } | null,
+    } | null > | null,
+    nextToken: string | null,
   } | null,
 };
 
-export type OnDeleteTodoSubscription = {
-  onDeleteTodo:  {
-    __typename: "Todo",
+export type GetEstimateQueryVariables = {
+  id: string,
+};
+
+export type GetEstimateQuery = {
+  getEstimate:  {
+    __typename: "Estimate",
     id: string,
-    name: string,
-    description: string | null,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type ListEstimatesQueryVariables = {
+  filter?: ModelEstimateFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListEstimatesQuery = {
+  listEstimates:  {
+    __typename: "ModelEstimateConnection",
+    items:  Array< {
+      __typename: "Estimate",
+      id: string,
+      estimate: PlanningPokerCard,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type OnCreateSessionSubscription = {
+  onCreateSession:  {
+    __typename: "Session",
+    id: string,
+    name: string | null,
+  } | null,
+};
+
+export type OnUpdateSessionSubscription = {
+  onUpdateSession:  {
+    __typename: "Session",
+    id: string,
+    name: string | null,
+  } | null,
+};
+
+export type OnDeleteSessionSubscription = {
+  onDeleteSession:  {
+    __typename: "Session",
+    id: string,
+    name: string | null,
+  } | null,
+};
+
+export type OnCreateWorkItemSubscription = {
+  onCreateWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type OnUpdateWorkItemSubscription = {
+  onUpdateWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type OnDeleteWorkItemSubscription = {
+  onDeleteWorkItem:  {
+    __typename: "WorkItem",
+    id: string,
+    name: string | null,
+    estimates:  {
+      __typename: "ModelEstimateConnection",
+      items:  Array< {
+        __typename: "Estimate",
+        id: string,
+        estimate: PlanningPokerCard,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+  } | null,
+};
+
+export type OnCreateEstimateSubscription = {
+  onCreateEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type OnUpdateEstimateSubscription = {
+  onUpdateEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
+  } | null,
+};
+
+export type OnDeleteEstimateSubscription = {
+  onDeleteEstimate:  {
+    __typename: "Estimate",
+    id: string,
+    estimate: PlanningPokerCard,
   } | null,
 };

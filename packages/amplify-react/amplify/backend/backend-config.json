@@ -1,35 +1,29 @@
 {
+	"auth": {
+		"cognito4ee2b391": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
 	"hosting": {
 		"S3AndCloudFront": {
 			"service": "S3AndCloudFront",
 			"providerPlugin": "awscloudformation"
 		}
 	},
-	"auth": {
-		"cognito2b4aefe1": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"analytics": {
-		"amplifyreact": {
-			"service": "Pinpoint",
-			"providerPlugin": "awscloudformation"
-		}
-	},
-	"storage": {
-		"filestorage": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
-		}
-	},
 	"api": {
-		"amplifyreact": {
+		"planningpoker": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
 				"securityType": "AMAZON_COGNITO_USER_POOLS"
 			}
+		}
+	},
+	"analytics": {
+		"planningpoker": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }

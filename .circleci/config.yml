@@ -4,6 +4,9 @@
 #
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@0.1.16
+
 workflows:
   version: 2
   build-and-test:
@@ -34,7 +37,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v2-dependencies-
 
-      - run: yarn install
+      - run: yarn workspace @hardchor/scripts install --prod --frozen-lockfile
+      - run: yarn install --frozen-lockfile
 
       - save_cache:
           paths:
@@ -45,7 +49,7 @@ jobs:
           key: v2-dependencies-{{ checksum "yarn.lock" }}
 
       # run tests!
-      - run: yarn test
+      - run: yarn test --stream ----ignore @hardchor/amplify-react
 
   build-amplify-react:
     docker:
@@ -53,14 +57,26 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+      - aws-cli/setup:
+          profile-name: default
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "yarn.lock" }}
-            - v2-dependencies-
-      - run: yarn workspace @hardchor/amplify-react install
+            - v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
+            - v1-amplify-react-dependencies-
+      - run: yarn workspace @hardchor/scripts install --prod --frozen-lockfile
+      - run: yarn workspace @hardchor/amplify-react install --frozen-lockfile
       - save_cache:
           paths:
             - node_modules
             - packages/amplify-react/node_modules
-          key: v2-dependencies-{{ checksum "yarn.lock" }}
+          key: v1-amplify-react-dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: 'Checkout Amplify test Environment'
+          command: |
+            yarn workspace @hardchor/amplify-react amplify env list
+            yarn workspace @hardchor/amplify-react amplify init --amplify "{\"envName\":\"test\"}" --providers "{\"awscloudformation\":{\"useProfile\":true,\"profileName\":\"default\"}}" --yes
+      - run:
+          name: 'Deploy to test'
+          command: |
+            yarn workspace @hardchor/amplify-react amplify publish --invalidateCloudFront --codegen "{\"generateCode\":false}" -- yes
       - run: yarn workspace @hardchor/amplify-react test

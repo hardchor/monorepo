@@ -1,5 +1,5 @@
 projects:
-  amplifyreact:
+  planningpoker:
     schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.ts
@@ -10,7 +10,3 @@ projects:
         codeGenTarget: typescript
         generatedFileName: src/API.ts
         docsFilePath: src/graphql
-        graphQLApiId: d4x3b2jtbzhdporuwf4mbqgyma
-      endpoints:
-        prod: >-
-          https://lbfdf6hi7bb6jm6horwhpza5ey.appsync-api.eu-west-1.amazonaws.com/graphql

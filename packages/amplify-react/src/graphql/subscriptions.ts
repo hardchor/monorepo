@@ -1,27 +1,87 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateTodo = `subscription OnCreateTodo {
-  onCreateTodo {
+export const onCreateSession = `subscription OnCreateSession {
+  onCreateSession {
     id
     name
-    description
   }
 }
 `;
-export const onUpdateTodo = `subscription OnUpdateTodo {
-  onUpdateTodo {
+export const onUpdateSession = `subscription OnUpdateSession {
+  onUpdateSession {
     id
     name
-    description
   }
 }
 `;
-export const onDeleteTodo = `subscription OnDeleteTodo {
-  onDeleteTodo {
+export const onDeleteSession = `subscription OnDeleteSession {
+  onDeleteSession {
     id
     name
-    description
+  }
+}
+`;
+export const onCreateWorkItem = `subscription OnCreateWorkItem {
+  onCreateWorkItem {
+    id
+    name
+    estimates {
+      items {
+        id
+        estimate
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onUpdateWorkItem = `subscription OnUpdateWorkItem {
+  onUpdateWorkItem {
+    id
+    name
+    estimates {
+      items {
+        id
+        estimate
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onDeleteWorkItem = `subscription OnDeleteWorkItem {
+  onDeleteWorkItem {
+    id
+    name
+    estimates {
+      items {
+        id
+        estimate
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const onCreateEstimate = `subscription OnCreateEstimate {
+  onCreateEstimate {
+    id
+    estimate
+  }
+}
+`;
+export const onUpdateEstimate = `subscription OnUpdateEstimate {
+  onUpdateEstimate {
+    id
+    estimate
+  }
+}
+`;
+export const onDeleteEstimate = `subscription OnDeleteEstimate {
+  onDeleteEstimate {
+    id
+    estimate
   }
 }
 `;

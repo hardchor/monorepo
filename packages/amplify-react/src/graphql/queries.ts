@@ -1,24 +1,74 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const getTodo = `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+export const getSession = `query GetSession($id: ID!) {
+  getSession(id: $id) {
     id
     name
-    description
   }
 }
 `;
-export const listTodos = `query ListTodos(
-  $filter: ModelTodoFilterInput
+export const listSessions = `query ListSessions(
+  $filter: ModelSessionFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listSessions(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
-      description
+    }
+    nextToken
+  }
+}
+`;
+export const getWorkItem = `query GetWorkItem($id: ID!) {
+  getWorkItem(id: $id) {
+    id
+    name
+    estimates {
+      items {
+        id
+        estimate
+      }
+      nextToken
+    }
+  }
+}
+`;
+export const listWorkItems = `query ListWorkItems(
+  $filter: ModelWorkItemFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listWorkItems(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      estimates {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+`;
+export const getEstimate = `query GetEstimate($id: ID!) {
+  getEstimate(id: $id) {
+    id
+    estimate
+  }
+}
+`;
+export const listEstimates = `query ListEstimates(
+  $filter: ModelEstimateFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listEstimates(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      estimate
     }
     nextToken
   }

@@ -1,0 +1,20 @@
+{
+    "appName": "planningpoker",
+    "roleName": "pinpointLambdaRolecfeb6c08",
+    "cloudWatchPolicyName": "cloudWatchPolicycfeb6c08",
+    "pinpointPolicyName": "pinpointPolicycfeb6c08",
+    "authPolicyName": "pinpoint_amplify_cfeb6c08",
+    "unauthPolicyName": "pinpoint_amplify_cfeb6c08",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
