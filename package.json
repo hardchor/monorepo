@@ -22,7 +22,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@hardchor/scripts": "*",
-    "husky": "^2.2.0",
+    "husky": "^4.2.1",
     "lerna": "^3.4.3",
     "lint-staged": "^8.1.5"
   },
