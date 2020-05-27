@@ -17,7 +17,7 @@
     "@zeit/next-css": "^1.0.2-canary.2",
     "apollo-boost": "^0.3.1",
     "aws-amplify": "^1.1.26",
-    "aws-amplify-react": "^2.3.6",
+    "aws-amplify-react": "^3.1.3",
     "aws-appsync": "^1.7.2",
     "graphql": "^14.2.1",
     "graphql-tag": "^2.10.1",
